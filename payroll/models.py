@@ -30,13 +30,14 @@ class Affordability(models.Model):
     def __str__(self) -> str:
         return self.name +': '+ self.period+'-'+self.monthly_afford+'-'+self.running_afford
 
-class UserGroups(models.Model):
-    user_id=models.ForeignKey(User,on_delete=models.DO_NOTHING)
-    group_id=models.IntegerField()
-
 class ActivityLog(models.Model):
-    username=models.ForeignKey(User,on_delete=models.DO_NOTHING)
-    description=models.CharField(max_length=200)
+    user_id=models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    username=models.CharField(max_length=120)
+    module=models.CharField(max_length=100)
+    remote_addr=models.CharField(max_length=40)
+    request_uri=models.CharField(max_length=255)
+    agent=models.CharField(max_length=255)
+    activity=models.CharField(max_length=200)
     created=models.DateTimeField(auto_created=True)
 
 class LoginAttempts(models.Model):
