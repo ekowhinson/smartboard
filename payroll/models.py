@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.base import Model
+from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
 from django.db.models.deletion import DO_NOTHING
 from django.db.models.fields import BooleanField, CharField
 # Create your models here.
+
 
 class Company(models.Model):
     code=models.CharField(max_length=20)
@@ -32,7 +33,7 @@ class CompanyBranch(models.Model):
     date=models.DateField(auto_now=True)
 
     def __str__(self):
-        return self.company +', '+ self.branch_name
+        return str(self.company) +', '+ self.branch_name
 
 
 
@@ -50,8 +51,25 @@ class Employee(models.Model):
     def __str__(self):
         return self.last_name
 
+class Payment(models.Model):
+    employee_code=models.ForeignKey(Employee,on_delete=DO_NOTHING)
+    national_id=models.CharField(max_length=30)
+    ghloxid=models.CharField(max_length=30)
+    
+    TRANSTYPES=(
+        ('Earning','earning'),
+        ('Deduction','deduction')
+    )
+    transtype=models.CharField(max_length=80,choices=TRANSTYPES)
+    transname=models.CharField(max_length=120)
+    amount=models.DecimalField(decimal_places=2,max_digits=8)
+
+    def __str__(self) -> str:
+        return self.employee_code + self.transtype +self.transname+self.amount
+
+
 class Affordability(models.Model):
-    employee_number=models.CharField(max_length=20)
+    employee_number=models.ForeignKey(Employee,on_delete=DO_NOTHING)
     staff_id=models.CharField(max_length=20)
     name=models.CharField(max_length=120)
     ssf_number=models.CharField(max_length=13)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee,ActivityLog,LoginAttempts
+from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability
 from django.contrib.auth.models import User
 
 class EmployeeSerializer(serializers.ModelSerializer):
