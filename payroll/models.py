@@ -25,7 +25,7 @@ class Company(models.Model):
     authorized_by=models.ForeignKey(User,on_delete=DO_NOTHING)
 
     def __str__(self):
-        return self.name
+        return self.code + ': ' +self.name
 
 class CompanyBranch(models.Model):
     company=models.ForeignKey(Company,on_delete=DO_NOTHING)
