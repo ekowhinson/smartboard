@@ -13,7 +13,7 @@ class Company(models.Model):
     contact_number=models.CharField(max_length=30)
     status=models.BooleanField()
     date_created=models.DateTimeField(auto_now=True)
-    contact_numbe1=models.CharField(max_length=30)
+    contact_number1=models.CharField(max_length=30)
     contact_number2=models.CharField(max_length=30)
     ceo_number=models.CharField(max_length=30)
     ceo_name=models.CharField(max_length=120)
