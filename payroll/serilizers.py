@@ -1,7 +1,7 @@
 from django.db.models import fields
 from rest_framework import serializers
 from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 class CompanySerializers(serializers.ModelSerializer):
     class Meta:
@@ -38,7 +38,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         fields=('username','password','first_name','last_name','groups','user_permissions',)
-        model=User
+        model=get_user_model()
 
 class ActivityLogSerializer(serializers.ModelSerializer):
     class Meta:

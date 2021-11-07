@@ -40,7 +40,7 @@ class CompanyBranch(models.Model):
 class Employee(models.Model):
     code=models.CharField(max_length=20)
     first_name=models.CharField(max_length=80)
-    middle_name=models.CharField(max_length=80)
+    middle_name=models.CharField(max_length=80, blank=True)
     last_name=models.CharField(max_length=80)
     company=models.ForeignKey(Company,on_delete=DO_NOTHING)
     company_branch=models.ForeignKey(CompanyBranch,on_delete=DO_NOTHING)

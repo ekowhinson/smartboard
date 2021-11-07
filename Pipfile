@@ -7,6 +7,11 @@ name = "pypi"
 django = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
+dj-rest-auth = "*"
+django-allauth = "*"
+pyyaml = "*"
+uritemplate = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
