@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     #Local
     'payroll.apps.PayrollConfig',
+    'menumanager.apps.MenumanagerConfig',
 ]
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'

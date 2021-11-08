@@ -58,7 +58,7 @@ class Payment(models.Model):
     
     TRANSTYPES=(
         ('Earning','earning'),
-        ('Deduction','deduction')
+        ('Deduction','deduction'),
     )
     transtype=models.CharField(max_length=80,choices=TRANSTYPES)
     transname=models.CharField(max_length=120)
