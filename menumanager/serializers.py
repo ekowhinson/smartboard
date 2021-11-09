@@ -1,8 +1,29 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import MenuGroup
+from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers
 
 class MenuGroupSerializer(serializers.ModelSerializer):
     class Meta:
         fields=('id','code','name','description','date',)
         model=MenuGroup
+
+class MenuSubGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','menugpcode','code','name','namespace','icons','status','date',)
+        model=MenuSubGroup
+
+class MenuSubGroupDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','menugpcode','menucatcode','code','icons','name','namespace','imageuniname','status','notification','sidebar','dashboard','windview','windviewgeneralreport','windviewfinancialreport','windviewstatisticalreport','admin_accessright','date','targeted','viewer',)
+        model=MenuSubGroupDetail
+
+class MenuSubUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','usruserid','menudetcode','status','addedby','date',)
+        model=MenuSubUsers
+
+class DaUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','code','brchid','surname','othernames','password','username','startdate','emergencyphone','phoneno','level','email','status','actorid','date')
+        model=DaUsers
+        model=DaUsers
