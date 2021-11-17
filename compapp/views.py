@@ -5,6 +5,6 @@ from .Serializers import CiAdminSerializer
 
 # Create your views here.
 class CiAdminViewSet(viewsets.ModelViewSet):
-    queryset=CiAdmin.objeccts.all()
+    queryset=CiAdmin.objects.all()
     serializer_class=CiAdminSerializer
     filterset_fields=['username']
