@@ -24,3 +24,6 @@ class CiAdmin(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
     company_id=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
 
+    def __str__(self):
+        return self.username
+
