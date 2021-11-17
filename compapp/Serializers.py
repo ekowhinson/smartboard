@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CiAdmin,CiAdminRoles,Module
+from .models import ModuleAccess,CiAdmin,CiAdminRoles,Module
 from django.contrib.auth import get_user_model
 
 class CiAdminSerializer(serializers.ModelSerializer):
@@ -17,3 +17,7 @@ class ModuleSerializer(serializers.ModelSerializer):
         fields='__all__'
         model=Module
 
+class ModuleAccessSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=ModuleAccess
