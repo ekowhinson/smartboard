@@ -48,3 +48,11 @@ class Module(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+class ModuleAccess(models.Model):
+    admin_role_id=models.IntegerField()
+    module=models.ForeignKey(Module,on_delete=models.CASCADE)
+    operation=models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.module}'
