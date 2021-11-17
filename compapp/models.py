@@ -38,3 +38,13 @@ class CiAdminRoles(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+class module(models.Model):
+    name=models.CharField(max_length=200)
+    controller_name=models.CharField(max_length=200)
+    fa_icon=models.CharField(max_length=100)
+    operation=models.TextField()
+    sort_order=models.IntegerField()
+
+    def __str__(self):
+        return f'{self.name}'
