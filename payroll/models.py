@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
 from django.db.models.deletion import DO_NOTHING
 from django.db.models.fields import BooleanField, CharField
+
 # Create your models here.
 
 
@@ -11,7 +12,7 @@ class Company(models.Model):
     name=models.CharField(max_length=200)
     email=models.EmailField()
     contact_number=models.CharField(max_length=30)
-    status=models.BooleanField()
+    status=models.BooleanField(default=False)
     date_created=models.DateTimeField(auto_now=True)
     contact_number1=models.CharField(max_length=30)
     contact_number2=models.CharField(max_length=30)
@@ -21,7 +22,7 @@ class Company(models.Model):
     address=models.CharField(max_length=150)
     postal_address=models.CharField(max_length=150)
     landmark=models.CharField(max_length=200)
-    authorization_status=BooleanField()
+    authorization_status=BooleanField(default=False)
     authorized_by=models.ForeignKey(User,on_delete=DO_NOTHING)
 
     def __str__(self):
@@ -112,3 +113,63 @@ class Mandate(models.Model):
 
     def __str__(self):
         return self.code + self.employee_code +self.status + str(self.date)
+
+class Bank(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    short_name=models.CharField(max_length=50)
+    status=models.BooleanField(default=False)
+    date=models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
+
+class BankBranch(models.Model):
+    bankCode=models.ForeignKey(Bank,on_delete=models.CASCADE)
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    
+    def __str__(self):
+        return self.name
+
+class Element(models.Model):
+    code=models.CharField(max_length=50)
+    clgcode=models.CharField(max_length=50)
+    catcode=models.CharField(max_length=50)
+    amount=models.DecimalField(decimal_places=2,max_digits=8)
+    status=models.BooleanField(default=False)
+    date=models.DateTimeField(auto_now_add=True)
+    real=models.CharField(max_length=50)
+    typeid=models.CharField(max_length=50)
+    emap=models.CharField(max_length=50)
+    companyid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return self.code
+
+class ElementCategory(models.Model):
+    code=models.CharField(max_length=50)
+    platform=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    description=models.CharField(max_length=150)
+    apply_affordability=models.BooleanField(default=False)
+    status=models.BooleanField(default=False)
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class ElementGroup(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    rate=models.DecimalField(decimal_places=2,max_digits=8)
+    category=models.CharField(max_length=50)
+    bank_name=models.ForeignKey(Bank,on_delete=models.DO_NOTHING)
+    bank_branch=models.ForeignKey(BankBranch,on_delete=models.DO_NOTHING)
+    acc_no=models.CharField(max_length=80)
+    status=models.BooleanField(default=False)
+    elementcreated=models.BooleanField(default=False)
+    date=models.DateTimeField(auto_now_add=True)
+   
+    def __str__(self):
+        return self.name

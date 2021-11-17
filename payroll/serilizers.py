@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate
+from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup
 from django.contrib.auth import get_user_model
 
 class CompanySerializers(serializers.ModelSerializer):
@@ -49,3 +49,29 @@ class LoginAttemptsSerializer(serializers.ModelSerializer):
     class Meta:
         fields=('id','ip_address','timestamp','attempts',)
         model=LoginAttempts
+
+class BankSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','code','name','short_name','status','date')
+        model=Bank
+
+class BankBranchSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','bankCode','code','name')
+        model=BankBranch
+
+class ElementSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','code','clgcode','catcode','amount','status','date','real','typeid','emap','companyid')
+        model=Element
+
+class ElementCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','code','platform','name','description','apply_affordability','status','date')
+        model=ElementCategory
+
+class ElementGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','code','name','rate','category','bank_name','bank_branch','acc_no','status','elementcreated','date')
+        model=ElementGroup
+

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE, SET_NULL,DO_NOTHING
-
+from payroll.models import Company
 # Create your models here.
 
 #CustomUser=get_user_model()
@@ -94,7 +94,7 @@ class MenuSubUsers(models.Model):
         return self.usruseri+' '+self.menudetcode
    
 class DaUsers(models.Model):
-    code=models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    code=models.CharField(max_length=50)
     brchid=models.CharField(max_length=50)
     surname=models.CharField(max_length=100)
     othernames=models.CharField(max_length=100)
@@ -102,6 +102,7 @@ class DaUsers(models.Model):
     username=models.CharField(max_length=50)
     startdate=models.DateField(auto_now=True,auto_created=True)
     emergencyphone=models.CharField(max_length=255,null=True,blank=True)
+    companyid=models.ForeignKey(Company,on_delete=models.CASCADE)
     phoneno=models.CharField(max_length=100,null=True,blank=True)
     LEVEL=(
         ('1','administrator'),
@@ -118,7 +119,7 @@ class DaUsers(models.Model):
     status=models.CharField(max_length=50,choices=STATUS,default='1')
     actorid=models.IntegerField(null=True,blank=True)
     date=models.DateTimeField(auto_now=True,auto_created=True)
-
+    backenduser=models.ForeignKey(User,on_delete=DO_NOTHING)
     def __str__(self):
         return self.surname+' '+ self.othernames
 

@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from .views import UserViewSet, AffordabilityViewSet, CompanyBranchViewSet, CompanyViewSet,EmployeeViewSet, MandateViewSet,PaymentViewSet,ActivityLogList,LoginAttemptsList
+from .views import UserViewSet, AffordabilityViewSet, CompanyBranchViewSet, CompanyViewSet,EmployeeViewSet, MandateViewSet,PaymentViewSet,ActivityLogList,LoginAttemptsList,BankViewSet,BankBranchViewSet,ElementViewSet,ElementCategoryViewSet,ElementGroupViewSet
 
 router=SimpleRouter()
 router.register('company',CompanyViewSet,basename='company')
@@ -10,7 +10,11 @@ router.register('user',UserViewSet,basename='user')
 router.register('payment',PaymentViewSet,basename='payment')
 router.register('mandate',MandateViewSet,basename='mandate')
 router.register('employee',EmployeeViewSet,basename='employee')
-
+router.register('bank',BankViewSet,basename='bank')
+router.register('bankbranch',BankBranchViewSet,basename='bankbranch')
+router.register('element',ElementViewSet,basename='element')
+router.register('elementcategory',ElementCategoryViewSet,basename='elementcategory')
+router.register('elementgroup',ElementGroupViewSet,basename='elementgroup')
 urlpatterns=router.urls
 
 

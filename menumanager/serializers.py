@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers
+from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,UsersPermission
 
 class MenuGroupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,6 +24,11 @@ class MenuSubUsersSerializer(serializers.ModelSerializer):
 
 class DaUsersSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','brchid','surname','othernames','password','username','startdate','emergencyphone','phoneno','level','email','status','actorid','date')
+        fields=('id','code','brchid','surname','backenduser','othernames','password','username','startdate','emergencyphone','companyid','phoneno','level','email','status','actorid','date')
         model=DaUsers
-        model=DaUsers
+
+class UsersPermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields=('id','usruserid','menudetcode','status','addedby','date',)
+        model=UsersPermission
+

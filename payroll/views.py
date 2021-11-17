@@ -1,8 +1,8 @@
 from django.db.models import query
 from rest_framework import generics,viewsets
-from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate
+from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory
 from django.contrib.auth import get_user_model
-from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, UserSerializer
+from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer
 
 
 # Create your views here.
@@ -45,3 +45,27 @@ class ActivityLogList(generics.ListCreateAPIView):
 class LoginAttemptsList(generics.ListCreateAPIView):
     queryset=LoginAttempts.objects.all()
     serializer_class=LoginAttemptsSerializer
+
+class BankViewSet(viewsets.ModelViewSet):
+    queryset=Bank.objects.all()
+    serializer_class=BankSerializer
+    filterset_fields=['code']
+
+class BankBranchViewSet(viewsets.ModelViewSet):
+    queryset=BankBranch.objects.all()
+    serializer_class=BankBranchSerializer
+    filterset_fields=['bankCode','code']
+
+class ElementViewSet(viewsets.ModelViewSet):
+    queryset=Element.objects.all()
+    serializer_class=ElementSerializer
+    filterset_fields=['companyid']
+
+class ElementCategoryViewSet(viewsets.ModelViewSet):
+    queryset=ElementCategory.objects.all()
+    serializer_class=ElementCategorySerializer
+    
+class ElementGroupViewSet(viewsets.ModelViewSet):
+    queryset=ElementGroup.objects.all()
+    serializer_class=ElementGroupSerializer
+    
