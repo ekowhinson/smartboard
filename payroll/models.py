@@ -48,7 +48,19 @@ class Employee(models.Model):
     ssnit_number=models.CharField(max_length=13)
     national_id=models.CharField(max_length=40)
     gra_tin=models.CharField(max_length=40)
-    
+    username=models.CharField(max_length=50)
+    email=models.EmailField()
+    mobile_no=models.CharField(max_length=20)
+    password=models.CharField(max_length=200)
+    address=models.CharField(max_length=200)
+    is_active=models.IntegerField(default=1)
+    is_verify=models.IntegerField(default=0)
+    token=models.CharField(max_length=200)
+    password_reset_code=models.CharField(max_length=200)
+    last_ip=models.CharField(max_length=30)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+        
     def __str__(self):
         return self.last_name
 
