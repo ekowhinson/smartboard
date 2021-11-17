@@ -9,6 +9,6 @@ class CiAdminViewSet(viewsets.ModelViewSet):
     serializer_class=CiAdminSerializer
     filterset_fields=['username','is_active']
 
-class CiAdminRolesViewSet(viewsets.ModelViewset):
+class CiAdminRolesViewSet(viewsets.ModelViewSet):
     queryset=CiAdminRoles.objects.all()
     serializer_class=CiAdminRolesSerializer
