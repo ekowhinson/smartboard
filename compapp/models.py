@@ -39,7 +39,7 @@ class CiAdminRoles(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-class module(models.Model):
+class Module(models.Model):
     name=models.CharField(max_length=200)
     controller_name=models.CharField(max_length=200)
     fa_icon=models.CharField(max_length=100)
