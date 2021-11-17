@@ -7,4 +7,4 @@ from .Serializers import CiAdminSerializer
 class CiAdminViewSet(viewsets.ModelViewSet):
     queryset=CiAdmin.objects.all()
     serializer_class=CiAdminSerializer
-    filterset_fields=['username']
+    filterset_fields=['username','is_active']
