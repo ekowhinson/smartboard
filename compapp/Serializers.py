@@ -4,5 +4,5 @@ from django.contrib.auth import get_user_model
 
 class CiAdminSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=__all__
+        fields='__all__'
         model=CiAdmin
