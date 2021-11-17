@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics,viewsets
-from .models import CiAdmin,CiAdminRoles
-from .Serializers import CiAdminSerializer,CiAdminRolesSerializer
+from .models import CiAdmin,CiAdminRoles,Module
+from .Serializers import ModuleSerializer,CiAdminSerializer,CiAdminRolesSerializer
 
 # Create your views here.
 class CiAdminViewSet(viewsets.ModelViewSet):
@@ -12,3 +12,8 @@ class CiAdminViewSet(viewsets.ModelViewSet):
 class CiAdminRolesViewSet(viewsets.ModelViewSet):
     queryset=CiAdminRoles.objects.all()
     serializer_class=CiAdminRolesSerializer
+
+class ModuleViewSet(viewsets.ModelViewSet):
+    queryset=Module.objects.all()
+    serializer_class=ModuleSerializer
+
