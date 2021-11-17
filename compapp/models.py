@@ -28,3 +28,13 @@ class CiAdmin(models.Model):
     def __str__(self):
         return self.username
 
+class CiAdminRoles(models.Model):
+    title=models.CharField(max_length=30)
+    status=models.IntegerField()
+    created_by=models.IntegerField()
+    created_on=models.DateTimeField(auto_now_add=True)
+    modified_by=models.IntegerField()
+    modified_on=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.title}'
