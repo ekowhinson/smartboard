@@ -80,7 +80,7 @@ class MenuSubGroupDetail(models.Model):
         return self.name
 
 class MenuSubUsers(models.Model):
-    usruserid=models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    usruserid=models.CharField(max_length=50)
     menudetcode=models.CharField(max_length=50,null=True,blank=True)
     STATUS=(
         ('0','Revoked'),
