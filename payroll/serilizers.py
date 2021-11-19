@@ -62,7 +62,7 @@ class BankBranchSerializer(serializers.ModelSerializer):
 
 class ElementSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','clgcode','catcode','amount','status','date','real','typeid','emap','companyid')
+        fields='__all__'
         model=Element
 
 class ElementCategorySerializer(serializers.ModelSerializer):

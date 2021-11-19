@@ -146,6 +146,7 @@ class BankBranch(models.Model):
 
 class Element(models.Model):
     code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
     clgcode=models.CharField(max_length=50)
     catcode=models.CharField(max_length=50)
     amount=models.DecimalField(decimal_places=2,max_digits=8)
