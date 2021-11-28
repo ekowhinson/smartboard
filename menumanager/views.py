@@ -24,7 +24,7 @@ class MenuSubUsersViewSet(viewsets.ModelViewSet):
 class DaUsersViewSet(viewsets.ModelViewSet):
     queryset=DaUsers.objects.all()
     serializer_class=DaUsersSerializer
-    filterset_fields=['username',]
+    filterset_fields=['username','companyid']
 class UsersPermissionViewSet(viewsets.ModelViewSet):
     queryset=UsersPermission.objects.all()
     serializer_class=UsersPermissionSerializer
