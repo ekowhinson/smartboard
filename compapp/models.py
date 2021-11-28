@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from payroll.models import Company
+from payroll import models as pmodels
 # Create your models here.
 class CiAdmin(models.Model):
     admin_role_id=models.IntegerField()
@@ -22,7 +22,7 @@ class CiAdmin(models.Model):
     last_ip=models.CharField(max_length=200,null=True,blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
-    company_id=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+    company_id=models.ForeignKey(pmodels.Company,on_delete=models.DO_NOTHING)
 
     
     def __str__(self):
