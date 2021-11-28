@@ -1,20 +1,26 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from .views import UserViewSet, AffordabilityViewSet, CompanyBranchViewSet, CompanyViewSet,EmployeeViewSet, MandateViewSet,PaymentViewSet,ActivityLogList,LoginAttemptsList,BankViewSet,BankBranchViewSet,ElementViewSet,ElementCategoryViewSet,ElementGroupViewSet
+import views as pviews
 
 router=SimpleRouter()
-router.register('company',CompanyViewSet,basename='company')
-router.register('companybranch',CompanyBranchViewSet,basename='companybranch')
-router.register('affordability',AffordabilityViewSet,basename='affordability')
-router.register('user',UserViewSet,basename='user')
-router.register('payment',PaymentViewSet,basename='payment')
-router.register('mandate',MandateViewSet,basename='mandate')
-router.register('employee',EmployeeViewSet,basename='employee')
-router.register('bank',BankViewSet,basename='bank')
-router.register('bankbranch',BankBranchViewSet,basename='bankbranch')
-router.register('element',ElementViewSet,basename='element')
-router.register('elementcategory',ElementCategoryViewSet,basename='elementcategory')
-router.register('elementgroup',ElementGroupViewSet,basename='elementgroup')
+router.register('products',pviews.ProductViewSet,basename='products')
+router.register('rejections',pviews.RejectionViewSet,basename='rejections')
+router.register('positions',pviews.PositionViewSet,basename='positions')
+router.register('authoritynote',pviews.AuthorityNoteViewSet,basename='authoritynote')
+router.register('transactions',pviews.TransactionViewSet,basename='transactions')
+router.register('userelement',pviews.UserElementViewSet,basename='userelement')
+router.register('company',pviews.CompanyViewSet,basename='company')
+router.register('companybranch',pviews.CompanyBranchViewSet,basename='companybranch')
+router.register('affordability',pviews.AffordabilityViewSet,basename='affordability')
+router.register('user',pviews.UserViewSet,basename='user')
+router.register('payment',pviews.PaymentViewSet,basename='payment')
+router.register('mandate',pviews.MandateViewSet,basename='mandate')
+router.register('employee',pviews.EmployeeViewSet,basename='employee')
+router.register('bank',pviews.BankViewSet,basename='bank')
+router.register('bankbranch',pviews.BankBranchViewSet,basename='bankbranch')
+router.register('element',pviews.ElementViewSet,basename='element')
+router.register('elementcategory',pviews.ElementCategoryViewSet,basename='elementcategory')
+router.register('elementgroup',pviews.ElementGroupViewSet,basename='elementgroup')
 urlpatterns=router.urls
 
 

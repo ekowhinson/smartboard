@@ -1,4 +1,5 @@
 from ast import increment_lineno
+from sys import dont_write_bytecode
 from types import MemberDescriptorType
 from django.db import models
 from django.contrib.auth.models import User
@@ -216,10 +217,12 @@ class Product(models.Model):
 class Positions(models.Model):
     name=models.CharField(max_length=50)
     description=models.CharField(max_length=150)
+    compid=models.ForeignKey(Company,on_delete=models.CASCADE)
 
 class AuthorityNote(models.Model):
     code=models.CharField(max_length=50)
     name=models.CharField(max_length=150)
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
     rate=models.DecimalField(decimal_places=2,max_digits=7)
     category=models.ForeignKey(ElementCategory,on_delete=models.DO_NOTHING)
     bank=models.ForeignKey(Bank,on_delete=models.DO_NOTHING)
@@ -236,7 +239,9 @@ class Transaction(models.Model):
     authority_note=models.ForeignKey(AuthorityNote,on_delete=models.DO_NOTHING)
     element_code=models.ForeignKey(Element,on_delete=DO_NOTHING)
     description=models.CharField(max_length=100)
-
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+    employee=models.ForeignKey(Employee,on_delete=models.DO_NOTHING)
+    
     def __str__(self) -> str:
         return f'{self.description}'
 
