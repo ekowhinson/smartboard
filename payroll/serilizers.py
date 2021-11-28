@@ -1,8 +1,40 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup
+from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product,Transaction,Positions,Rejections,AuthorityNote,UserElement
 from django.contrib.auth import get_user_model
 
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=Product
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=Transaction
+
+
+class PositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='_all__'
+        model=Positions
+
+class RejectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=Rejections
+
+class AuthorityNoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=AuthorityNote
+
+class UserElementSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=UserElement
+        
 class CompanySerializers(serializers.ModelSerializer):
     class Meta:
         fields=('id','code','name','email','contact_number','status','date_created','contact_number1','contact_number2','ceo_number','ceo_name','contact_person','address','postal_address','landmark','authorization_status','authorized_by',)

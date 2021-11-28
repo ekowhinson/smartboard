@@ -1,11 +1,40 @@
 from django.db.models import query
 from rest_framework import generics,viewsets
-from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory
+from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product,UserElement,Transaction,Positions,AuthorityNote
 from django.contrib.auth import get_user_model
-from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer
-
+from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
 
 # Create your views here.
+
+class RejectionViewSet(viewsets.ModelViewSet):
+    queryset=Rejections.objects.all()
+    serializer_class=RejectionSerializer
+    filterset_fields=['compid']
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset=Product.objects.all()
+    serializer_class=ProductSerializer
+    filterset_fields=['compid']
+
+class PositionViewSet(viewsets.ModelViewSet):
+    queryset=Positions.objects.all()
+    serializer_Class=PositionSerializer
+    filterset_fields=['compid']
+
+class AuthorityNoteViewSet(viewsets.ModelViewSet):
+    queryset=AuthorityNote.objects.all()
+    serializer_class=AuthorityNoteSerializer
+    filterset_fields=['compid','code']
+
+class UserElementViewSet(viewsets.ModelViewSet):
+    queryset=UserElement.objects.all()
+    serializer_class=UserElementSerializer
+    filterset_fields=['companyid']
+
+class TransactionViewSet(viewsets.ModelViewSet):
+    queryset=Transaction.objects.all()
+    serializer_class=TransactionSerializer
+    filterset_fields=['compid','employee']
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset=Company.objects.all()
     serializer_class=CompanySerializers
@@ -13,7 +42,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class CompanyBranchViewSet(viewsets.ModelViewSet):
     queryset=CompanyBranch.objects.all()
     serializer_class=CompanyBranchSerializer
-
+    filterset_fields=['company']
 
 class AffordabilityViewSet(viewsets.ModelViewSet):
     queryset=Affordability.objects.all()
