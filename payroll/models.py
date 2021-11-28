@@ -1,6 +1,7 @@
 from ast import increment_lineno
 from sys import dont_write_bytecode
 from types import MemberDescriptorType
+from compapp.models import DaUsers
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
@@ -246,7 +247,7 @@ class Transaction(models.Model):
         return f'{self.description}'
 
 class UserElement(models.Model):
-    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    userid=models.ForeignKey(DaUsers,on_delete=models.CASCADE)
     element_code=models.ForeignKey(Element,on_delete=models.DO_NOTHING)
     companyid=models.ForeignKey(Company,on_delete=models.CASCADE)
 
