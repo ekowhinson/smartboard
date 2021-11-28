@@ -1,3 +1,4 @@
+from types import MemberDescriptorType
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
@@ -186,3 +187,26 @@ class ElementGroup(models.Model):
    
     def __str__(self):
         return self.name
+
+class Rejections(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    description=models.CharField(max_length=250)
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+    status=models.BooleanField()
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} {self.description}'
+
+class Product(models.Model):
+    name=models.CharField(max_length=50)
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+    elementcode=models.ForeignKey(Element,on_delete=models.DO_NOTHING)
+    authorid=models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    duration=models.PositiveIntegerField()
+    status=models.BooleanField()
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name}'
