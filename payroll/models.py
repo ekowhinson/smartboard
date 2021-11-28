@@ -1,3 +1,4 @@
+from ast import increment_lineno
 from types import MemberDescriptorType
 from django.db import models
 from django.contrib.auth.models import User
@@ -25,7 +26,8 @@ class Company(models.Model):
     landmark=models.CharField(max_length=200)
     authorization_status=BooleanField(default=False)
     authorized_by=models.ForeignKey(User,on_delete=DO_NOTHING)
-
+    alias=models.CharField(max_length=50)
+    
     def __str__(self):
         return self.code + ': ' +self.name
 
@@ -210,3 +212,39 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+class Positions(models.Model):
+    name=models.CharField(max_length=50)
+    description=models.CharField(max_length=150)
+
+class AuthorityNote(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=150)
+    rate=models.DecimalField(decimal_places=2,max_digits=7)
+    category=models.ForeignKey(ElementCategory,on_delete=models.DO_NOTHING)
+    bank=models.ForeignKey(Bank,on_delete=models.DO_NOTHING)
+    bank_branch=models.ForeignKey(BankBranch,on_delete=models.DO_NOTHING)
+    acc_no=models.CharField(max_length=50)
+    status=models.BooleanField()
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+class Transaction(models.Model):
+    loanAdvNo=models.CharField(max_length=50)
+    authority_note=models.ForeignKey(AuthorityNote,on_delete=models.DO_NOTHING)
+    element_code=models.ForeignKey(Element,on_delete=DO_NOTHING)
+    description=models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return f'{self.description}'
+
+class UserElement(models.Model):
+    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    element_code=models.ForeignKey(Element,on_delete=models.DO_NOTHING)
+    companyid=models.ForeignKey(Company,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f'{self.userid} {self.element_code} {self.companyid}'
+
