@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product,Transaction,Positions,Rejections,AuthorityNote,UserElement
+from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product, Tester,Transaction,Positions,Rejections,AuthorityNote,UserElement
 from django.contrib.auth import get_user_model
 
 
@@ -107,3 +107,6 @@ class ElementGroupSerializer(serializers.ModelSerializer):
         fields=('id','code','name','rate','category','bank_name','bank_branch','acc_no','status','elementcreated','date')
         model=ElementGroup
 
+class TesterSerializer(serializers.ModelSerializer):
+    fields='__all__'
+    model=Tester

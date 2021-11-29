@@ -254,3 +254,6 @@ class UserElement(models.Model):
     def __str__(self) -> str:
         return f'{self.userid} {self.element_code} {self.companyid}'
 
+class Tester(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=100)

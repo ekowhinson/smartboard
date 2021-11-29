@@ -1,8 +1,10 @@
 from django.urls import path
+from payroll.views import TesterViewSet
 from rest_framework.routers import SimpleRouter
 from .views import MenuSubUsersDelete,MenuGroupViewSet,MenuSubGroupDetailViewSet,MenuSubGroupViewSet,MenuSubUsersViewSet,DaUsersViewSet,UsersPermissionViewSet
 
 router=SimpleRouter()
+router.register('tester',TesterViewSet,basename='tester')
 router.register('menusubusersdelete',MenuSubUsersDelete,basename='menusubusersdelete')
 router.register('menugroup',MenuGroupViewSet,basename='menugroup')
 router.register('menusubgroup',MenuSubGroupViewSet,basename='menusubgroup')
