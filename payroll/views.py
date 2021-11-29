@@ -1,5 +1,5 @@
 from django.db.models import query
-from rest_framework import generics,viewsets
+from rest_framework import generics,viewsets,Response
 from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product, Tester,UserElement,Transaction,Positions,AuthorityNote
 from django.contrib.auth import get_user_model
 from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TesterSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
@@ -103,6 +103,11 @@ class TesterDelete(viewsets.ViewSet):
      class Meta:
          queryset=Tester.objects.all()
          serializer_class=TesterSerializer
+     
+     def list(self, request):
+        queryset = Tester.objects.all()
+        serializer = TesterSerializer(queryset, many=True)
+        return Response(serializer.data)
 
      def destroy(self, request,code=None):
         #serializer_class=TesterSerializer 
