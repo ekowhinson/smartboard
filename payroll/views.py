@@ -98,7 +98,7 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     queryset=ElementGroup.objects.all()
     serializer_class=ElementGroupSerializer
     
-class TesterViewSet(viewsets.Viewset):
+class TesterViewSet(viewsets.ViewSet):
      def destroy(self, request,code):
         testers = Tester.objects.filter(code=code)
         if testers:
