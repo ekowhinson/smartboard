@@ -22,10 +22,12 @@ class MenuSubUsersViewSet(viewsets.ModelViewSet):
     serializer_class=MenuSubUsersSerializer
     filterset_fields=['usruserid']
     
+class MenuSubUsersDelete(viewsets.Viewset):
+
     def destroy(self, request,usrid):
         subusers = MenuSubUsers.objects.filter(usruserid=usrid)
-        for sub in subusers:
-            sub.delete()
+        if subusers:
+            subusers.delete()
 
 
 class DaUsersViewSet(viewsets.ModelViewSet):
