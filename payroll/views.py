@@ -100,10 +100,11 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     serializer_class=ElementGroupSerializer
     
 class TesterDelete(viewsets.ViewSet):
-     def destroy(self, request,code=None):
-        #serializer_class=TesterSerializer
-        queryset = Tester.objects.filter(code=code)
-        testers=queryset
+     class Meta:
+         queryset=Tester.objects.all()
+         serializer_class=TesterSerializer
 
-        if testers:
-            testers.delete()
+     def destroy(self, request,code=None):
+        #serializer_class=TesterSerializer 
+        Tester.objects.filter(code=code).delete()
+        return f'success!'
