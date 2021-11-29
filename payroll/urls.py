@@ -3,6 +3,7 @@ from rest_framework.routers import SimpleRouter
 import payroll.views as pviews
 
 router=SimpleRouter()
+router.register('testertable',pviews.TesterTableViewSet,basename='testertable')
 router.register('products',pviews.ProductViewSet,basename='products')
 router.register('rejections',pviews.RejectionViewSet,basename='rejections')
 router.register('positions',pviews.PositionViewSet,basename='positions')

@@ -106,3 +106,8 @@ class ElementGroupSerializer(serializers.ModelSerializer):
     class Meta:
         fields=('id','code','name','rate','category','bank_name','bank_branch','acc_no','status','elementcreated','date')
         model=ElementGroup
+
+class TestTableSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=TesterTable

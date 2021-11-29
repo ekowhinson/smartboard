@@ -2,7 +2,7 @@ from django.db.models import query
 from rest_framework import generics,viewsets
 from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product, TesterTable,UserElement,Transaction,Positions,AuthorityNote
 from django.contrib.auth import get_user_model
-from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
+from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TestTableSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -100,3 +100,6 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     queryset=ElementGroup.objects.all()
     serializer_class=ElementGroupSerializer
     
+class TesterTableViewSet(viewsets.ModelViewSet):
+    queryset=TesterTable.objects.all()
+    serializer_class=TestTableSerializer
