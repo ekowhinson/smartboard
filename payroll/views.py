@@ -100,6 +100,15 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     queryset=ElementGroup.objects.all()
     serializer_class=ElementGroupSerializer
     
-class TesterDelete(viewsets.ViewSet):
+class TesterDelete(viewsets.ModelViewSet):
     queryset=Tester.objects.all()
     serializer_class=TesterSerializer
+
+    def get_queryset(self):
+        all_data=Tester.objects.all()
+        return all_data
+    
+    def destroy(self, request,code=None):
+        #serializer_class=TesterSerializer 
+        Tester.get_queryset().delete()
+        return f'success!'
