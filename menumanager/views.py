@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import UsersPermission ,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,DaUsers
 from .serializers import UsersPermissionSerializer ,MenuSubUsersSerializer ,MenuGroupSerializer,MenuSubGroupDetailSerializer,MenuSubGroupSerializer,DaUsersSerializer
@@ -34,8 +35,10 @@ class DaUsersViewSet(viewsets.ModelViewSet):
     queryset=DaUsers.objects.all()
     serializer_class=DaUsersSerializer
     filterset_fields=['username','companyid']
+
 class UsersPermissionViewSet(viewsets.ModelViewSet):
     queryset=UsersPermission.objects.all()
     serializer_class=UsersPermissionSerializer
 
 
+    
