@@ -1,8 +1,9 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-import views as pviews
+import payroll.views as pviews
 
 router=SimpleRouter()
+router.register('tester',pviews.TesterViewset,basename='tester')
 router.register('products',pviews.ProductViewSet,basename='products')
 router.register('rejections',pviews.RejectionViewSet,basename='rejections')
 router.register('positions',pviews.PositionViewSet,basename='positions')
