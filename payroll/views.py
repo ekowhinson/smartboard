@@ -100,6 +100,6 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     queryset=ElementGroup.objects.all()
     serializer_class=ElementGroupSerializer
     
-class TesterDelete(viewsets.ModelViewSet):
+class TesterViewSet(viewsets.ModelViewSet):
     queryset=Tester.objects.all()
     serializer_class=TesterSerializer
