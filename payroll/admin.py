@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Affordability, Employee,ActivityLog,LoginAttempts,Company,CompanyBranch, Mandate, Payment,Bank,BankBranch,Element,ElementGroup,ElementCategory, Tester
+from .models import Affordability, Employee,ActivityLog,LoginAttempts,Company,CompanyBranch, Mandate, Payment,Bank,BankBranch,Element,ElementGroup,ElementCategory,TesterTable
 # Register your models here.
 
 admin.site.register(Employee)
@@ -15,4 +15,4 @@ admin.site.register(BankBranch)
 admin.site.register(Element)
 admin.site.register(ElementCategory)
 admin.site.register(ElementGroup)
-admin.site.register(Tester)
+admin.site.register(TesterTable)
