@@ -11,6 +11,7 @@ class MenuGroupViewSet(viewsets.ModelViewSet):
 class MenuSubGroupViewSet(viewsets.ModelViewSet):
     queryset=MenuSubGroup.objects.all()
     serializer_class=MenuSubGroupSerializer
+    filter_fields=['usruserid']
 
 class MenuSubGroupDetailViewSet(viewsets.ModelViewSet):
     queryset=MenuSubGroupDetail.objects.all()
