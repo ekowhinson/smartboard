@@ -4,6 +4,7 @@ from .models import Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Aff
 from django.contrib.auth import get_user_model
 from .serilizers import MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TesterSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 class RejectionViewSet(viewsets.ModelViewSet):
@@ -109,6 +110,12 @@ class TesterDelete(viewsets.ViewSet):
         serializer = TesterSerializer(queryset, many=True)
         return Response(serializer.data)
 
+     def retrieve(self, request, code=None):
+        queryset = Tester.objects.all()
+        user = get_object_or_404(queryset, code=code)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+     
      def destroy(self, request,code=None):
         #serializer_class=TesterSerializer 
         Tester.objects.filter(code=code).delete()
