@@ -101,21 +101,15 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
     serializer_class=ElementGroupSerializer
     
 class TesterDelete(viewsets.ViewSet):
-     class Meta:
-         queryset=Tester.objects.all()
-         serializer_class=TesterSerializer
+     #class Meta:
+         #queryset=Tester.objects.all()
+         #serializer_class=TesterSerializer
      
      def list(self, request):
         queryset = Tester.objects.all()
         serializer = TesterSerializer(queryset, many=True)
         return Response(serializer.data)
-
-     def retrieve(self, request, code=None):
-        queryset = Tester.objects.all()
-        user = queryset #get_object_or_404(queryset, code=code)
-        serializer = UserSerializer(user)
-        return Response(serializer.data)
-     
+    
      def destroy(self, request,code=None):
         #serializer_class=TesterSerializer 
         Tester.objects.filter(code=code).delete()
