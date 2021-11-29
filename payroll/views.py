@@ -112,7 +112,7 @@ class TesterDelete(viewsets.ViewSet):
 
      def retrieve(self, request, code=None):
         queryset = Tester.objects.all()
-        user = get_object_or_404(queryset, code=code)
+        user = queryset #get_object_or_404(queryset, code=code)
         serializer = UserSerializer(user)
         return Response(serializer.data)
      
