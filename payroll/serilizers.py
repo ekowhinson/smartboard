@@ -37,7 +37,7 @@ class UserElementSerializer(serializers.ModelSerializer):
         
 class CompanySerializers(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','name','email','contact_number','status','date_created','contact_number1','contact_number2','ceo_number','ceo_name','contact_person','address','postal_address','landmark','authorization_status','authorized_by',)
+        fields='__all__'
         model=Company
 
 class CompanyBranchSerializer(serializers.ModelSerializer):
