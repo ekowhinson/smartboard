@@ -19,7 +19,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class PositionViewSet(viewsets.ModelViewSet):
     queryset=Positions.objects.all()
-    serializer_Class=PositionSerializer
+    serializer_class=PositionSerializer
     filterset_fields=['compid']
 
 class AuthorityNoteViewSet(viewsets.ModelViewSet):
