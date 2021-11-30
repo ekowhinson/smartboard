@@ -17,7 +17,7 @@ class TransactionSerializer(serializers.ModelSerializer):
 
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
-        fields='_all__'
+        fields='__all__'
         model=Positions
 
 class RejectionSerializer(serializers.ModelSerializer):
