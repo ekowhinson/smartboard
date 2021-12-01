@@ -103,3 +103,4 @@ class ElementGroupViewSet(viewsets.ModelViewSet):
 class TesterTableViewSet(viewsets.ModelViewSet):
     queryset=TesterTable.objects.all()
     serializer_class=TestTableSerializer
+    lookup_field='code'

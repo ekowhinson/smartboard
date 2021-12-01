@@ -111,4 +111,4 @@ class TestTableSerializer(serializers.ModelSerializer):
     class Meta:
         fields='__all__'
         model=TesterTable
-        lookup_field='code'
+        
