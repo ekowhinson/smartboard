@@ -1,8 +1,18 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import BankBranch,Bank,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product, TesterTable,Transaction,Positions,Rejections,AuthorityNote,UserElement
+from .models import BankBranch,Bank, CompanyRate, CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product, TesterTable,Transaction,Positions,Rejections,AuthorityNote,UserElement
 from django.contrib.auth import get_user_model
 
+
+class CompanySettingsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CompanySettings
+        fields='__all__'
+
+class CompanyRateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CompanyRate
+        fields='__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:

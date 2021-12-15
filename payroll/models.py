@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
 from django.db.models.deletion import DO_NOTHING
 from django.db.models.fields import BooleanField, CharField
+from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
 
@@ -41,6 +42,21 @@ class CompanyBranch(models.Model):
     def __str__(self):
         return str(self.company) +', '+ self.branch_name
 
+class CompanySettings(models.Model):
+    companyid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
+    address=models.CharField(max_length=150)
+    Phone=models.IntegerField()
+    email=models.EmailField()
+    logo=models.CharField(max_length=100)
+    
+    def __str__(self) -> str:
+        return f'{self.companyid} {self.address}'
+
+class CompanyRate(models.Model):
+    name=models.CharField(max_length=50)
+    description=models.CharField(max_length=100)
+    rate=models.DecimalField(max_digits=8,decimal_places=2)
+    status=models.IntegerField()
 
 
 class Employee(models.Model):
@@ -242,6 +258,17 @@ class Transaction(models.Model):
     description=models.CharField(max_length=100)
     compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
     employee=models.ForeignKey(Employee,on_delete=models.DO_NOTHING)
+    employee_name=models.CharField(max_length=150)
+    total_repayment=models.DecimalField(decimal_places=2,max_digits=8)
+    principal=models.DecimalField(max_digits=8,decimal_places=2)
+    monthly_pay=models.DecimalField(max_digits=8,decimal_places=2)
+    duration=models.IntegerField()
+    affordability=models.DecimalField(max_digits=8,decimal_places=2)
+    application_date=models.DateField()
+    start_date=models.DateField()
+    transaction_type=models.CharField(max_length=80,choices={{'loan','Loan'},{'insurance','Insurance'}})
+    authorization_satus=models.BooleanField()
+    authorization_date=models.DateField()
     
     def __str__(self) -> str:
         return f'{self.description}'
