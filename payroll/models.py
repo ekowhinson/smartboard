@@ -266,7 +266,7 @@ class Transaction(models.Model):
     affordability=models.DecimalField(max_digits=8,decimal_places=2)
     application_date=models.DateField()
     start_date=models.DateField()
-    transaction_type=models.CharField(max_length=80,choices={{'loan','Loan'},{'insurance','Insurance'}})
+    transaction_type=models.CharField(max_length=80,choices=(('loan','Loan'),('insurance','Insurance')))
     authorization_satus=models.BooleanField()
     authorization_date=models.DateField()
     
