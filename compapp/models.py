@@ -33,9 +33,10 @@ class CiAdminRoles(models.Model):
     status=models.IntegerField()
     created_by=models.IntegerField()
     created_on=models.DateTimeField(auto_now_add=True)
-    modified_by=models.IntegerField()
-    modified_on=models.DateTimeField(auto_now=True)
-
+    modified_by=models.IntegerField(blank=True,null=True)
+    modified_on=models.DateTimeField(auto_now=True,null=True,blank=True)
+    company_id=models.ForeignObject(Company,on_delete=models.DO_NOTHING)
+    
     def __str__(self):
         return f'{self.title}'
 
@@ -45,14 +46,16 @@ class Module(models.Model):
     fa_icon=models.CharField(max_length=100)
     operation=models.TextField()
     sort_order=models.IntegerField()
+    company_id=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f'{self.name}'
 
 class ModuleAccess(models.Model):
     admin_role_id=models.IntegerField()
-    module=models.ForeignKey(Module,on_delete=models.CASCADE)
+    module=models.ForeignKey(Module,on_delete=models.DO_NOTHING)
     operation=models.CharField(max_length=200)
+    company_id=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f'{self.module}'
