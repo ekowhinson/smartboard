@@ -12,6 +12,7 @@ class CiAdminViewSet(viewsets.ModelViewSet):
 class CiAdminRolesViewSet(viewsets.ModelViewSet):
     queryset=CiAdminRoles.objects.all()
     serializer_class=CiAdminRolesSerializer
+    filterset_fields=['compid','status']
 
 class ModuleViewSet(viewsets.ModelViewSet):
     queryset=Module.objects.all()
