@@ -35,7 +35,7 @@ class CiAdminRoles(models.Model):
     created_on=models.DateTimeField(auto_now_add=True)
     modified_by=models.IntegerField(blank=True,null=True)
     modified_on=models.DateTimeField(auto_now=True,null=True,blank=True)
-    company_id=models.ForeignObject(Company,on_delete=models.DO_NOTHING)
+    company_id=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
     
     def __str__(self):
         return f'{self.title}'
