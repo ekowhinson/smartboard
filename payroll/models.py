@@ -5,7 +5,7 @@ from types import MemberDescriptorType
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import Model, ModelStateFieldsCacheDescriptor
-from django.db.models.deletion import DO_NOTHING
+from django.db.models.deletion import CASCADE, DO_NOTHING
 from django.db.models.fields import BooleanField, CharField
 from django.db.models.fields.related import ForeignKey
 
@@ -97,7 +97,8 @@ class Payment(models.Model):
     transtype=models.CharField(max_length=80,choices=TRANSTYPES)
     transname=models.CharField(max_length=120)
     amount=models.DecimalField(decimal_places=2,max_digits=8)
-
+    balance=models.DecimalField(decimal_places=2,max_digits=8,blank=True,null=True)
+    comp_id=models.ForeignKey(Company,on_delete=CASCADE)
     def __str__(self) -> str:
         return self.employee_code + self.transtype +self.transname+self.amount
 
@@ -110,7 +111,7 @@ class Affordability(models.Model):
     monthly_afford=models.DecimalField(decimal_places=2,max_digits=8)
     running_afford=models.DecimalField(decimal_places=2,max_digits=8)
     period=models.CharField(max_length=20)
-
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
     def __str__(self) -> str:
         return self.name +': '+ self.period+'-'+self.monthly_afford+'-'+self.running_afford
 
@@ -123,7 +124,7 @@ class ActivityLog(models.Model):
     agent=models.CharField(max_length=255)
     activity=models.CharField(max_length=200)
     created=models.DateTimeField(auto_created=True)
-
+    compid=models.ForeignKey(Company,on_delete=models.DO_NOTHING)
     def __str__(self):
         return self.user_id + self.created +self.activity
 
