@@ -52,28 +52,28 @@ class CompanySerializers(serializers.ModelSerializer):
 
 class CompanyBranchSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','company','branch_name','date')
+        fields='__all__'
         model=CompanyBranch
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','employee_code','national_id','ghloxid','transtype','transname','amount',)
+        fields='__all__'
         model=Payment
 
 class AffordabilitySerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('employee_number','staff_id','name','ssf_number','monthly_afford','running_afford','period')
+        fields='__all__'
         model=Affordability
 
 class MandateSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('code','employee_code','company','status','date','expiredate','verified',)
+        fields='__all__'
         model=Mandate
 
 class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields=('id','code','first_name','middle_name','last_name','company','company_branch','ssnit_number','gra_tin','national_id',)
+        fields='__all__'
         model=Employee
 
 
@@ -84,22 +84,22 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ActivityLogSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','activity','user_id','username','module','request_uri','agent','created')
+        fields='__all__'
         model=ActivityLog
 
 class LoginAttemptsSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','ip_address','timestamp','attempts',)
+        fields='__all__'
         model=LoginAttempts
 
 class BankSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','name','short_name','status','date')
+        fields='__all__'
         model=Bank
 
 class BankBranchSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','bankCode','code','name')
+        fields='__all__'
         model=BankBranch
 
 class ElementSerializer(serializers.ModelSerializer):
@@ -109,12 +109,12 @@ class ElementSerializer(serializers.ModelSerializer):
 
 class ElementCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','platform','name','description','apply_affordability','status','date')
+        fields='__all__'
         model=ElementCategory
 
 class ElementGroupSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('id','code','name','rate','category','bank_name','bank_branch','acc_no','status','elementcreated','date')
+        fields='__all__'
         model=ElementGroup
 
 class TestTableSerializer(serializers.ModelSerializer):
