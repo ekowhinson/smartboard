@@ -7,7 +7,7 @@ from .Serializers import ModuleAccessSerializer,ModuleSerializer,CiAdminSerializ
 class CiAdminViewSet(viewsets.ModelViewSet):
     queryset=CiAdmin.objects.all()
     serializer_class=CiAdminSerializer
-    filterset_fields=['username','is_active']
+    filterset_fields=['compid','username','is_active']
 
 class CiAdminRolesViewSet(viewsets.ModelViewSet):
     queryset=CiAdminRoles.objects.all()
