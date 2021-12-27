@@ -60,7 +60,7 @@ class CompanyRate(models.Model):
 
 
 class Employee(models.Model):
-    code=models.CharField(max_length=20)
+    code=models.CharField(max_length=20,unique=True)
     first_name=models.CharField(max_length=80)
     middle_name=models.CharField(max_length=80, blank=True)
     last_name=models.CharField(max_length=80)
@@ -78,6 +78,7 @@ class Employee(models.Model):
     is_verify=models.IntegerField(default=0)
     token=models.CharField(max_length=200,null=True,blank=True)
     password_reset_code=models.CharField(max_length=200,null=True,blank=True)
+    reason=models.CharField(max_length=200,blank=True,null=True)
     last_ip=models.CharField(max_length=30,null=True,blank=True)
     created_at=models.DateTimeField(blank=True,null=True)
     updated_at=models.DateTimeField(blank=True,null=True)
