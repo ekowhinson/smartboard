@@ -100,8 +100,9 @@ class Payment(models.Model):
     amount=models.DecimalField(decimal_places=2,max_digits=8)
     balance=models.DecimalField(decimal_places=2,max_digits=8,blank=True,null=True)
     comp_id=models.ForeignKey(Company,on_delete=CASCADE)
-    def __str__(self) -> str:
-        return self.employee_code + self.transtype +self.transname+self.amount
+    
+    def __str__(self):
+        return f'{self.employee_code} {self.transtype} {self.transname} {self.amount}'
 
 
 class Affordability(models.Model):
