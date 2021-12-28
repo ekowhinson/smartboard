@@ -142,13 +142,13 @@ class Mandate(models.Model):
     code=models.CharField(max_length=20)
     employee_code=models.ForeignKey(Employee,on_delete=DO_NOTHING)
     company=models.ForeignKey(Company,on_delete=DO_NOTHING)
-    status=models.CharField(max_length=30)
+    status=models.CharField(max_length=30,blank=True,null=True)
     date=models.DateTimeField(auto_now=True)
     expiredate=models.DateTimeField()
     verified=models.BooleanField()
 
     def __str__(self):
-        return self.code + self.employee_code +self.status + str(self.date)
+        return f'{self.code} {self.employee_code} {self.status} {self.date}'
 
 class Bank(models.Model):
     code=models.CharField(max_length=50)
