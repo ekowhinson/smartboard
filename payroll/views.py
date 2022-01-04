@@ -63,7 +63,7 @@ class MandateViewSet(viewsets.ModelViewSet):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset= Employee.objects.all()
     serializer_class=EmployeeSerializer
-    filterset_fields=['company','code']
+    filterset_fields=['company','code','is_active','is_verify']
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset=get_user_model().objects.all()

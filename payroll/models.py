@@ -61,6 +61,7 @@ class CompanyRate(models.Model):
 
 class Employee(models.Model):
     code=models.CharField(max_length=20,unique=True)
+    ghlox_code=models.CharField(max_length=20,unique=True,blank=True,null=True)
     first_name=models.CharField(max_length=80)
     middle_name=models.CharField(max_length=80, blank=True)
     last_name=models.CharField(max_length=80)
