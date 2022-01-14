@@ -1,6 +1,11 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,UsersPermission
+from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,UsersPermission,MenuUserElement
+
+class MenuUserElementSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=MenuUserElement
 
 class MenuGroupSerializer(serializers.ModelSerializer):
     class Meta:

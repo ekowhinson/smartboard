@@ -1,10 +1,15 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from .models import UsersPermission ,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,DaUsers
-from .serializers import UsersPermissionSerializer ,MenuSubUsersSerializer ,MenuGroupSerializer,MenuSubGroupDetailSerializer,MenuSubGroupSerializer,DaUsersSerializer
+from .models import MenuUserElement,UsersPermission ,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,DaUsers
+from .serializers import MenuUserElementSerializer,UsersPermissionSerializer ,MenuSubUsersSerializer ,MenuGroupSerializer,MenuSubGroupDetailSerializer,MenuSubGroupSerializer,DaUsersSerializer
 from rest_framework import viewsets
 
 # Create your views here.
+class MenuUserElementViewSet(viewsets.ModelViewSet):
+    queryset=MenuUserElement.objects.all()
+    serializer_class=MenuUserElementSerializer
+    filterset_fields=['eltuserid']
+
 class MenuGroupViewSet(viewsets.ModelViewSet):
     queryset= MenuGroup.objects.all()
     serializer_class=MenuGroupSerializer
