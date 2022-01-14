@@ -44,6 +44,7 @@ class DaUsersViewSet(viewsets.ModelViewSet):
 class UsersPermissionViewSet(viewsets.ModelViewSet):
     queryset=UsersPermission.objects.all()
     serializer_class=UsersPermissionSerializer
+    filterset_fields=['usruserid']
 
 
     
