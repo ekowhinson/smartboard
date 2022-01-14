@@ -124,7 +124,7 @@ class DaUsers(models.Model):
         return self.surname+' '+ self.othernames
 
 class UsersPermission(models.Model):
-    usruserid=models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    usruserid=models.CharField(max_length=50)
     menudetcode=models.CharField(max_length=50)
     STATUS=(
         ('0','Revoked'),
