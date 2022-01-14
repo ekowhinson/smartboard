@@ -109,7 +109,7 @@ class DaUsers(models.Model):
         ('2','operator'),
         ('3','Manager'),
     )
-    level=models.CharField(max_length=50,choices=LEVEL,null=True,blank=True,default='2')
+    level=models.IntegerField()
     email=models.CharField(max_length=255,null=True,blank=True)
     STATUS=(
         ('-1','Deleted'),
