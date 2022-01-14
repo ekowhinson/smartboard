@@ -30,7 +30,8 @@ class Company(models.Model):
     authorization_status=BooleanField(default=False)
     authorized_by=models.ForeignKey(User,on_delete=DO_NOTHING)
     alias=models.CharField(max_length=50)
-    
+    company_type=models.CharField(choices=(('TPI','TPI'),('COMPNAY','Company')),max_length=20,)
+
     def __str__(self):
         return self.code + ': ' +self.name
 
@@ -143,10 +144,12 @@ class Mandate(models.Model):
     code=models.CharField(max_length=20)
     employee_code=models.ForeignKey(Employee,on_delete=DO_NOTHING)
     company=models.ForeignKey(Company,on_delete=DO_NOTHING)
+    tpi_company=models.ForeignKey(Company,on_delete=DO_NOTHING,blank=True,null=True)
     status=models.CharField(max_length=30,blank=True,null=True)
     date=models.DateTimeField(auto_now=True)
     expiredate=models.DateTimeField()
     verified=models.BooleanField()
+    
 
     def __str__(self):
         return f'{self.code} {self.employee_code} {self.status} {self.date}'
