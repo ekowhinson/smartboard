@@ -36,10 +36,11 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset=Transaction.objects.all()
     serializer_class=TransactionSerializer
     filterset_fields=['compid','employee']
+
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset=Company.objects.all()
     serializer_class=CompanySerializers
-
+    filterset_fields=['company_type']
 class CompanyBranchViewSet(viewsets.ModelViewSet):
     queryset=CompanyBranch.objects.all()
     serializer_class=CompanyBranchSerializer
