@@ -137,4 +137,9 @@ class UsersPermission(models.Model):
     def __str__(self):
         return self.usruserid+' '+self.menudetcode
 
+class MenuUserElement(models.Model):
+    eltuserid=models.CharField(max_length=50)
+    eltid=models.CharField(max_length=50)
+    status=models.CharField(max_length=50)
+    added_by=models.ForeignKey(User,on_delete=models.DO_NOTHING)
 
