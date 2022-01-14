@@ -79,7 +79,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=('username','password','first_name','last_name','groups','user_permissions',)
+        fields=('id','username','password','first_name','last_name','groups','user_permissions',)
         model=get_user_model()
 
 class ActivityLogSerializer(serializers.ModelSerializer):
