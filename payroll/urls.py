@@ -25,7 +25,7 @@ router.register('bankbranch',pviews.BankBranchViewSet,basename='bankbranch')
 router.register('element',pviews.ElementViewSet,basename='element')
 router.register('elementcategory',pviews.ElementCategoryViewSet,basename='elementcategory')
 router.register('elementgroup',pviews.ElementGroupViewSet,basename='elementgroup')
-router.register('affordabilityformular',pviews.AffordabilityFormularSerializer,basename='affordabilityformular')
+router.register('affordabilityformular',pviews.AffordabilityFormularViewSet,basename='affordabilityformular')
 urlpatterns=router.urls
 
 
