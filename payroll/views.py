@@ -1,6 +1,6 @@
 from django.db.models import query
 from rest_framework import generics,viewsets
-from .models import AffordabilityFormular, CompanyRate,CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product, TesterTable,UserElement,Transaction,Positions,AuthorityNote
+from .models import AffordFormular, CompanyRate,CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product, TesterTable,UserElement,Transaction,Positions,AuthorityNote
 from django.contrib.auth import get_user_model
 from .serilizers import AffordabilityFormSerializer, CompanyRateSerializer,CompanySettingsSerializer,MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TestTableSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
 from rest_framework.response import Response
@@ -116,7 +116,7 @@ class CompanyRateView(viewsets.ModelViewSet):
     serializer_class=CompanyRateSerializer
 
 class AffordabilityFormularViewSet(viewsets.ModelViewSet):
-    queryset=AffordabilityFormular.objects.all()
+    queryset=AffordFormular.objects.all()
     serializer_class=AffordabilityFormSerializer
     
     

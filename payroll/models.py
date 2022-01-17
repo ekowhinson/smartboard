@@ -290,7 +290,7 @@ class UserElement(models.Model):
     def __str__(self) -> str:
         return f'{self.userid} {self.element_code} {self.companyid}'
 
-class AffordabilityFormular(models.Model):
+class AffordFormular(models.Model):
     companyid=models.ForeignKey(Company,on_delete=models.CASCADE)
     companyname=models.CharField(max_length=120)
     TRANSTYPES=(
