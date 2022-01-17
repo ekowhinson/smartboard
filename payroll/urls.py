@@ -5,7 +5,7 @@ import payroll.views as pviews
 
 router=SimpleRouter()
 router.register('compsettings',pviews.CompanySettingsView,basename='companysettings')
-router.register('comprate',pviews.companyRateView,basename='companyrate')
+router.register('comprate',pviews.CompanyRateView,basename='companyrate')
 router.register('testertable',pviews.TesterTableViewSet,basename='testertable')
 router.register('products',pviews.ProductViewSet,basename='products')
 router.register('rejections',pviews.RejectionViewSet,basename='rejections')
