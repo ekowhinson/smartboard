@@ -290,16 +290,6 @@ class UserElement(models.Model):
     def __str__(self) -> str:
         return f'{self.userid} {self.element_code} {self.companyid}'
 
-class AffordabilityFormular(models.Model):
-    companyid=models.ForeignKey(Company,on_delete=models.CASCADE)
-    companyname=models.CharField(max_length=120)
-    TRANSTYPES=(
-        ('Earning','earning'),
-        ('Deduction','deduction'),
-    )
-    transtype=models.CharField(max_length=80,choices=TRANSTYPES)
-    transname=models.CharField(max_length=120)
-
 class TesterTable(models.Model):
     code=models.CharField(max_length=50)
     name=models.CharField(max_length=100)
