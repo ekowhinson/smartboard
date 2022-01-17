@@ -60,7 +60,8 @@ class PaymentViewSet(viewsets.ModelViewSet):
 class MandateViewSet(viewsets.ModelViewSet):
     queryset=Mandate.objects.all()
     serializer_class=MandateSerializer
-
+    filterset_fields=['employee_code']
+    
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset= Employee.objects.all()
     serializer_class=EmployeeSerializer
