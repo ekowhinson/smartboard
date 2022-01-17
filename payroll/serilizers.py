@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import BankBranch,Bank, CompanyRate, CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product, TesterTable,Transaction,Positions,Rejections,AuthorityNote,UserElement
+from .models import AffordabilityFormular, BankBranch,Bank, CompanyRate, CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Element,ElementCategory,ElementGroup,Product, TesterTable,Transaction,Positions,Rejections,AuthorityNote,UserElement
 from django.contrib.auth import get_user_model
 
 
@@ -121,4 +121,8 @@ class TestTableSerializer(serializers.ModelSerializer):
     class Meta:
         fields='__all__'
         model=TesterTable
-        
+
+class AffordabilityFormularSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=AffordabilityFormular

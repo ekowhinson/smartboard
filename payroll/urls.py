@@ -1,3 +1,4 @@
+from posixpath import basename
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 import payroll.views as pviews
@@ -24,6 +25,7 @@ router.register('bankbranch',pviews.BankBranchViewSet,basename='bankbranch')
 router.register('element',pviews.ElementViewSet,basename='element')
 router.register('elementcategory',pviews.ElementCategoryViewSet,basename='elementcategory')
 router.register('elementgroup',pviews.ElementGroupViewSet,basename='elementgroup')
+router.register('affordabilityformular',pviews.AffordabilityFormularSerializer,basename='affordabilityformular')
 urlpatterns=router.urls
 
 
