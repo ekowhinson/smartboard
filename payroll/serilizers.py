@@ -122,7 +122,7 @@ class TestTableSerializer(serializers.ModelSerializer):
         fields='__all__'
         model=TesterTable
 
-class AffordabilityFormularSerializer(serializers.ModelSerializer):
+class AffordabilityFormSerializer(serializers.ModelSerializer):
     class Meta:
         fields='__all__'
         model=AffordabilityFormular
