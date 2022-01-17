@@ -84,6 +84,7 @@ class Employee(models.Model):
     last_ip=models.CharField(max_length=30,null=True,blank=True)
     created_at=models.DateTimeField(blank=True,null=True)
     updated_at=models.DateTimeField(blank=True,null=True)
+    picture=models.CharField(max_length=120,null=True,blank=True)
         
     def __str__(self):
         return self.last_name
