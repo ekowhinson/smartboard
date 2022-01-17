@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import DaUsers,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,UsersPermission,MenuUserElement
+from .models import DaUsers, EventLog, EventType,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,UsersPermission,MenuUserElement
 
 class MenuUserElementSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,3 +37,12 @@ class UsersPermissionSerializer(serializers.ModelSerializer):
         fields=('id','usruserid','menudetcode','status','addedby','date',)
         model=UsersPermission
 
+class EventLogSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=EventLog
+
+class EventTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields='__all__'
+        model=EventType

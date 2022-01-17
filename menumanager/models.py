@@ -1,3 +1,4 @@
+from distutils.archive_util import make_zipfile
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE, SET_NULL,DO_NOTHING
@@ -143,3 +144,17 @@ class MenuUserElement(models.Model):
     status=models.CharField(max_length=50)
     added_by=models.ForeignKey(User,on_delete=models.DO_NOTHING)
 
+class EventLog(models.Model):
+    evtcode=models.CharField(max_length=50)
+    memid=models.CharField(max_length=50)
+    name=models.CharField(max_length=120)
+    activities=models.CharField(max_length=250)
+    ip=models.CharField(max_length=50)
+    session_id=models.CharField(max_length=200)
+    browser=models.CharField(max_length=100)
+
+class EventType(models.Model):
+    code=models.CharField(max_length=50)
+    name=models.CharField(max_length=200)
+
+    

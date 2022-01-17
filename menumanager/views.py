@@ -1,7 +1,7 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from .models import MenuUserElement,UsersPermission ,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,DaUsers
-from .serializers import MenuUserElementSerializer,UsersPermissionSerializer ,MenuSubUsersSerializer ,MenuGroupSerializer,MenuSubGroupDetailSerializer,MenuSubGroupSerializer,DaUsersSerializer
+from .models import EventLog, EventType, MenuUserElement,UsersPermission ,MenuGroup,MenuSubGroup,MenuSubGroupDetail,MenuSubUsers,DaUsers
+from .serializers import EventLogSerializer, EventTypeSerializer, MenuUserElementSerializer,UsersPermissionSerializer ,MenuSubUsersSerializer ,MenuGroupSerializer,MenuSubGroupDetailSerializer,MenuSubGroupSerializer,DaUsersSerializer
 from rest_framework import viewsets
 
 # Create your views here.
@@ -45,6 +45,16 @@ class UsersPermissionViewSet(viewsets.ModelViewSet):
     queryset=UsersPermission.objects.all()
     serializer_class=UsersPermissionSerializer
     filterset_fields=['usruserid']
+
+class EventLogViewSet(viewsets.ModelViewSet):
+    queryset=EventLog.objects.all()
+    serializer_class=EventLogSerializer
+
+class EventTypeViewSet(viewsets.ModelViewSet):
+    queryset=EventType.objects.all()
+    serializer_class=EventTypeSerializer
+
+
 
 
     
