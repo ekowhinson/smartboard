@@ -147,7 +147,7 @@ class Mandate(models.Model):
     tpi_company=models.ForeignKey(Company,on_delete=DO_NOTHING,blank=True,null=True,related_name='tpi')
     status=models.CharField(max_length=30,blank=True,null=True)
     date=models.DateTimeField(auto_now=True)
-    expiredate=models.DateTimeField()
+    expiredate=models.DateField()
     verified=models.BooleanField()
     
 
