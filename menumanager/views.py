@@ -53,7 +53,7 @@ class EventLogViewSet(viewsets.ModelViewSet):
 class EventTypeViewSet(viewsets.ModelViewSet):
     queryset=EventType.objects.all()
     serializer_class=EventTypeSerializer
-    filterset_fields=['companyname',]
+    
 
 
 
