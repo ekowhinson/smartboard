@@ -142,7 +142,8 @@ class LoginAttempts(models.Model):
 
 class Mandate(models.Model):
     code=models.CharField(max_length=20)
-    employee_code=models.ForeignKey(Employee,on_delete=DO_NOTHING)
+    employee_id=models.ForeignKey(Employee,on_delete=DO_NOTHING)
+    employee_code=models.CharField(max_length=50)
     company=models.ForeignKey(Company,on_delete=DO_NOTHING)
     tpi_company=models.ForeignKey(Company,on_delete=DO_NOTHING,blank=True,null=True,related_name='tpi')
     status=models.CharField(max_length=30,blank=True,null=True)
