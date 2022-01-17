@@ -299,7 +299,6 @@ class AffordabilityFormular(models.Model):
     )
     transtype=models.CharField(max_length=80,choices=TRANSTYPES)
     transname=models.CharField(max_length=120)
-    date=models.DateTimeField()
 
 class TesterTable(models.Model):
     code=models.CharField(max_length=50)
