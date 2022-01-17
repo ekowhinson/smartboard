@@ -2,7 +2,7 @@ from django.db.models import query
 from rest_framework import generics,viewsets
 from .models import AffordabilityFormular, CompanyRate,CompanySettings,Employee,ActivityLog,LoginAttempts,CompanyBranch,Company,Affordability,Payment,Mandate,Bank,BankBranch,Element,ElementGroup,ElementCategory,Rejections,Product, TesterTable,UserElement,Transaction,Positions,AuthorityNote
 from django.contrib.auth import get_user_model
-from .serilizers import AffordabilityFormularSerializer, CompanyRateSerializer,CompanySettingsSerializer,MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TestTableSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
+from .serilizers import AffordabilityFormSerializer, CompanyRateSerializer,CompanySettingsSerializer,MandateSerializer,ActivityLogSerializer, AffordabilitySerializer, CompanyBranchSerializer, CompanySerializers, EmployeeSerializer, LoginAttemptsSerializer, PaymentSerializer, PositionSerializer, TestTableSerializer, UserSerializer,BankSerializer,BankBranchSerializer,ElementSerializer,ElementGroupSerializer,ElementCategorySerializer,RejectionSerializer,ProductSerializer,UserElementSerializer,AuthorityNoteSerializer,TransactionSerializer
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -117,6 +117,6 @@ class CompanyRateView(viewsets.ModelViewSet):
 
 class AffordabilityFormularViewSet(viewsets.ModelViewSet):
     queryset=AffordabilityFormular.objects.all()
-    serializer_class=AffordabilityFormularSerializer
+    serializer_class=AffordabilityFormSerializer
     
     
