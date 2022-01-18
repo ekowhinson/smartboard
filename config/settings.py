@@ -51,10 +51,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     #Local
-    'payroll.apps.PayrollConfig',
-    'menumanager.apps.MenumanagerConfig',
-    'compapp.apps.CompappConfig',	
-    'adminapps.apps.AdminappsConfig',
+   
 ]
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
@@ -111,8 +108,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ghlox',
-        'USER': 'postgres',
+        'NAME': 'smartboard',
+        'USER': 'ekowhinson',
         'PASSWORD':'Eesuon@28',
         'HOST':'localhost',
         'PORT':'5432'
