@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'payroll.apps.PayrollConfig',
     'menumanager.apps.MenumanagerConfig',
     'compapp.apps.CompappConfig',	
+    'adminapps.apps.AdminappsConfig',
 ]
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
