@@ -711,7 +711,7 @@ class Folder(models.Model):
     def __str__(self):
         return f'{self.school}: {self.name} {self.user_type} {self.user_id} {self.date}'
 
-class File(models.MOdel):
+class File(models.Model):
     name=models.CharField(max_length=50)
     size=models.CharField(max_length=50)
     date=models.DateTimeField()
