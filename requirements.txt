@@ -7,7 +7,7 @@ coreschema
 cryptography
 defusedxml
 dj-rest-auth
-Django
+Django==3.2.11
 django-allauth
 django-filter
 djangorestframework
