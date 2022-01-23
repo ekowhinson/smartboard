@@ -191,14 +191,6 @@ class Section(models.Model):
     def __str__(self):
         return f'{self.school}: {self.name} {self.class_id} {self.teacher_id}'
 
-class BillingCategory(models.Model):
-    code=models.CharField(max_length=50)
-    name=models.CharField(max_length=150)
-    school=models.ForeignKey(School,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.school}, {self.code}: {self.name}'
-
 class Ticket(models.Model):
     title=models.CharField(max_length=150)
     code=models.CharField(max_length=50)
