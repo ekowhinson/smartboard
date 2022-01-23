@@ -611,7 +611,7 @@ class Language(models.Model):
         return f'{self.school}: {self.phrase} {self.english} {self.french} {self.portuguese}'
 
 class HomeWork(models.Model):
-    code=models.ForeignKey(max_length=50)
+    code=models.CharField(max_length=50)
     title=models.CharField(max_length=100)
     description=models.CharField(max_length=50,blank=True,null=True)
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
