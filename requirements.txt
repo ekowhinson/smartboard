@@ -34,4 +34,4 @@ sqlparse
 typing_extensions
 uritemplate
 urllib3
-python==3.7.3
+
