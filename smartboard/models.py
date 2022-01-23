@@ -568,7 +568,7 @@ class Live(models.Model):
     subject_id=models.ForeignKey(Subject,on_delete=models.CASCADE)
     time=models.TimeField()
     user_type=models.CharField(max_length=50)
-    user_id=models.ForeignKey(User,on_delete=CASCADE)
+    user_id=models.ForeignKey(User,on_delete=models.CASCADE)
     year=models.IntegerField()
     publish_date=models.DateTimeField()
     upload_date=models.DateTimeField()
