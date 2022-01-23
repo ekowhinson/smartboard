@@ -513,7 +513,7 @@ class News(models.Model):
 class MessageThread(models.Model):
     code=models.CharField(max_length=50)
     sender=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='sender')
-    reciever=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='reciever')
+    reciever=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='thread reciever')
     last_message_timestamp=models.DateTimeField()
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
@@ -573,7 +573,7 @@ class Live(models.Model):
     year=models.IntegerField()
     publish_date=models.DateTimeField()
     upload_date=models.DateTimeField()
-    room=models.CharField()
+    room=models.CharField(max_length=50)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
