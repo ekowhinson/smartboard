@@ -1,17 +1,7 @@
-from distutils.archive_util import make_zipfile
 from email import charset
-from io import open_code
 from numbers import Integral
-from operator import truediv
-from pydoc import describe
-from pyexpat import model
-from re import M, sub
 from runpy import _ModifiedArgv0
 from sqlite3 import Timestamp
-from statistics import mode
-from tkinter import CASCADE, N
-from turtle import onclick, ondrag
-from unicodedata import digit
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -110,7 +100,7 @@ class Teacher(models.Model):
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     image=models.CharField(max_length=150)
     date=models.DateField()
-    school=models.ForeignKey(School,on_delete=CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.school} {self.title}: {self.first_name} {self.last_name}'
