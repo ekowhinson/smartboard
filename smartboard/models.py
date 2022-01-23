@@ -254,7 +254,7 @@ class Subject(models.Model):
     section_id=models.ForeignKey(Section,on_delete=models.CASCADE)
     color=models.CharField(max_length=50)
     icon=models.CharField(max_length=50,blank=True,null=True)
-    school=models.ForeignKey(School,on_delete=CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.school}: {self.name} {self.teacher} {self.classes_id}'
@@ -317,7 +317,7 @@ class OnlineExam(models.Model):
     uploader_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
     upload_date=models.DateField()
     password=models.CharField(max_length=30)
-    school=models.ForeignKey(School,on_delete=CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.school}: {self.title} {self.status} {self.uploader_id}'
@@ -886,14 +886,14 @@ class Invoice(models.Model):
     status=models.CharField(max_length=50,choices=(('Partial','Partial'),('Paid','Paid'),('Pending','Pending')))
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
     fees_id=models.ForeignKey(Fees,on_delete=models.CASCADE)
-    school=models.ForeignKey(School,on_delete=CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.school}: {self.student_id} {self.title} {self.amount} {self.creation_date}'
 
 class PaymentMethod(models.Model):
     name=models.CharField(max_length=50)
-    school=models.ForeignKey(School,on_delete=CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.school}: {self.name}'
@@ -910,7 +910,7 @@ class Payment(models.Model):
     title=models.ForeignKey(PaymentCategory,on_delete=models.CASCADE)
     payment_type=models.CharField(max_length=50,choices=(('Income','Income'),('Ependiture','Expenditure')))
     invoice_id=models.ForeignKey(Invoice,on_delete=models.CASCADE)
-    student_id=models.ForeignKey(Student,on_delete=CASCADE)
+    student_id=models.ForeignKey(Student,on_delete=models.CASCADE)
     method=models.ForeignKey(PaymentMethod,on_delete=models.CASCADE)
     amount=models.DecimalField(decimal_places=2,max_digits=8)
     timestamp=models.DateTimeField(auto_now_add=True)
