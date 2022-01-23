@@ -181,7 +181,7 @@ class ClassGroup(models.Model):
     def __str__(self):
         return f'{self.school} {self.name}'
 
-class Section(models.MOdel):
+class Section(models.Model):
     name=models.CharField(max_length=150)
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
     teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
