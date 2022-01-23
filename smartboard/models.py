@@ -360,7 +360,7 @@ class Remarks(models.Model):
     creation=models.DateTimeField(auto_now_add=True)
     user_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
     user_type=models.CharField(max_length=50)
-    modified=models.CharField(max_length=50,blan=True,null=True)
+    modified=models.CharField(max_length=50,blank=True,null=True)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
