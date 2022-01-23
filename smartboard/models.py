@@ -513,7 +513,7 @@ class News(models.Model):
 class MessageThread(models.Model):
     code=models.CharField(max_length=50)
     sender=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='sender')
-    reciever=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='thread reciever')
+    reciever=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='thread_reciever')
     last_message_timestamp=models.DateTimeField()
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
