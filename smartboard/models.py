@@ -1,5 +1,6 @@
 from email import charset
 from numbers import Integral
+import re
 from runpy import _ModifiedArgv0
 from sqlite3 import Timestamp
 from django.db import models
@@ -30,7 +31,7 @@ class AccountRole(models.Model):
 
 class AcademicSettings(models.Model):
     type=models.CharField(max_length=50)
-    description=models.CharField(100)
+    description=models.CharField(max_length=100)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -206,7 +207,7 @@ class Ticket(models.Model):
     description=models.CharField(max_length=150)
     student_id=models.ForeignKey(Student,on_delete=models.CASCADE)
     assigned_staff_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
-    teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE,related_name='teacher')
     timestamp=models.DateTimeField()
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
@@ -383,7 +384,7 @@ class QuestionBank(models.Model):
     type=models.CharField(max_length=50)
     number_of_options=models.IntegerField()
     options=models.CharField(max_length=250)
-    correct_answers=models.CharField()
+    correct_answers=models.CharField(max_length=250)
     mark=models.DecimalField(decimal_places=2,max_digits=8)
     image=models.CharField(max_length=150,blank=True,null=True)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
@@ -526,7 +527,7 @@ class Message(models.Model):
     timestamp=models.DateTimeField()
     read_status=models.IntegerField()
     file_name=models.CharField(max_length=100)
-    reciever=models.ForeignKey(Student,on_delete=models.CASCADE)
+    reciever=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='reciever')
     file_type=models.CharField(max_length=50)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
@@ -616,7 +617,7 @@ class HomeWork(models.Model):
     description=models.CharField(max_length=50,blank=True,null=True)
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
     subject_id=models.ForeignKey(Subject,on_delete=models.CASCADE)
-    uploader_id=models.ForeignKey(User,on_delete=models.CASCADE)
+    uploader_id=models.ForeignKey(User,on_delete=models.CASCADE,related_name='uploader')
     time_end=models.TimeField()
     section_id=models.ForeignKey(Section,on_delete=models.CASCADE)
     uploader_type=models.CharField(max_length=50)
@@ -866,7 +867,7 @@ class Fees(models.Model):
     fee_group_id=models.ForeignKey(FeeGroup,on_delete=models.CASCADE)
     academic_year=models.IntegerField()
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
-    fee_name=models.ForeignKey(FeeGroup,on_delete=models.CASCADE)
+    fee_name=models.CharField(max_length=50)
     amount=models.DecimalField(decimal_places=2,max_digits=8)
     description=models.CharField(max_length=50)
     created=models.DateTimeField()
@@ -881,7 +882,7 @@ class Invoice(models.Model):
     student_id=models.ForeignKey(Student,on_delete=models.CASCADE)
     title=models.ForeignKey(BillingCategory,on_delete=models.CASCADE)
     amount=models.DecimalField(decimal_places=2,max_digits=8)
-    invoice_type=models.CharField(max_length=50,choices=(('Income','Expenditure'),()))
+    invoice_type=models.CharField(max_length=50,choices=(('Income','Income'),('Expenditure','Expenditure')))
     creation_date=models.DateTimeField()
     status=models.CharField(max_length=50,choices=(('Partial','Partial'),('Paid','Paid'),('Pending','Pending')))
     class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
