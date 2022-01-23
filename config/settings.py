@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     #Local
-    'smartboard.apps.SmartboardConfig'
+    'smartboard.apps.SmartboardConfig',
 ]
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
