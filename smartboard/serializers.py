@@ -191,3 +191,33 @@ class MessageThreadSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.MessageThread
         fields='__all__'
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Message
+        fields='__all__'
+
+class MarkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Mark
+        fields='__all__'
+
+class LiveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Live
+        fields='__all__'
+
+class LibrarianSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Librarian
+        fields='__all__'
+
+class LanguageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Language
+        fields='__all__'
+
+class HomeWorkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.HomeWork
+        fields='__all__'

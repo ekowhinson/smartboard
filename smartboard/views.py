@@ -184,3 +184,33 @@ class MessageThreadViewSet(viewsets.ModelViewSet):
     queryset=smodels.MessageThread.objects.all()
     serializer_class=sbserializers.MessageThreadSerializer
     filterset_fields=['school']
+
+class MessageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Message.objects.all()
+    serializer_class=sbserializers.MessageSerializer
+    filterset_fields=['school']
+
+class MarkViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Mark.objects.all()
+    serializer_class=sbserializers.MarkSerializer
+    filterset_fields=['school']
+
+class LiveViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Live.objects.all()
+    serializer_class=sbserializers.LiveSerializer
+    filterset_fields=['school']
+
+class LibrarianViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Librarian.objects.all()
+    serializer_class=sbserializers.LibrarianSerializer
+    filterset_fields=['school']
+
+class LanguageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Language.objects.all()
+    serializer_class=sbserializers.LanguageSerializer
+    filterset_fields=['school']
+
+class HomeWorkViewSet(viewsets.ModelViewSet):
+    queryset=smodels.HomeWork.objects.all()
+    serializer_class=sbserializers.HomeWorkSerializer
+    filterset_fields=['school']
