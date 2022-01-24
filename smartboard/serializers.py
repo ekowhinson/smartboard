@@ -46,3 +46,18 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Teacher
         fields='__all__'
+
+class ParentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Parent
+        fields='__all__'
+
+class LevelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Level
+        fields='__all__'
+
+class ClassesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Classes
+        fiedls='__all__'
