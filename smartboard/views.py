@@ -9,3 +9,23 @@ class SchoolViewSet(viewsets.ModelViewSet):
     queryset=smodels.School.objects.all()
     serializer_class=sbserializers.SchoolSerializer
     filterset_fields=['name']
+
+class AcademicSettingsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.AcademicSettings.objects.all()
+    serializer_class=sbserializers.AcademicSettingsSerializer
+    filterset_fields=['school']
+
+class AcademicYearViewSet(viewsets.ModelViewSet):
+    queryset=smodels.AcademicYear.objects.all()
+    serializer_class=sbserializers.AcademicYearSerializer
+    filterset_fields=['school']
+
+class AccountRoleViewSet(viewsets.ModelViewSet):
+    queryset=smodels.AccountRole.objects.all()
+    serializer_class=sbserializers.AccountRoleSerializer
+    filterset_fields=['school']
+
+class AdminViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Admin.objects.all()
+    serializer_class=sbserializers.AdminSerializer
+    filterset_fields=['school']
