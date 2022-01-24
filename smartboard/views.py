@@ -308,4 +308,4 @@ class FeesViewSet(viewsets.ModelViewSet):
 class InvoiceViewSet(viewsets.ModelViewSet):
     queryset=smodels.Invoice.objects.all()
     serializer_class=sbserializers.InvoiceSrializer
-    filterset_fields=['school']
+    filterset_fields=['school','invoice_type','student_id','title','creation_date','status','class_id','fees_id']
