@@ -9,12 +9,12 @@ class SchoolSerializer(serializers.ModelSerializer):
 
 class AcademicSettingsSerializer(serializers.ModelSerializer):
     class Meta:
-        models=smbmodels.AcademicSettings
+        model=smbmodels.AcademicSettings
         fields='__all__'
 
 class AcademicYearSerializer(serializers.ModelSerializer):
     class Meta:
-        models=smbmodels.AcademicYear
+        model=smbmodels.AcademicYear
         fields='__all__'
 
 class AccountRoleSerializer(serializers.ModelSerializer):
