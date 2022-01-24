@@ -928,9 +928,15 @@ class Ledger(models.Model):
     amount=models.DecimalField(decimal_places=2,max_digits=8)
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.school}: {self.transaction_Type} {self.transaction_id} {self.amount}'
+
 class LedgerSummary(models.Model):
     invoice_id=models.ForeignKey(Invoice,on_delete=models.CASCADE)
     invoice_amount=models.DecimalField(decimal_places=2,max_digits=8)
     total_paid=models.DecimalField(decimal_places=2,max_digits=8)
     total_outstanding=models.DecimalField(decimal_places=2,max_digits=8)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f'{self.school}: {self.invoice_id} {self.invoice_amount} {self.total_paid} {self.total_outstanding}'
