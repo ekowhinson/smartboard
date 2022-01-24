@@ -36,4 +36,9 @@ class BillingCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.BillingCategory
         fields='__all__'
-        
+
+class DormitorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Dormitory
+        fields='__all__'
+

@@ -29,8 +29,13 @@ class AdminViewSet(viewsets.ModelViewSet):
     queryset=smodels.Admin.objects.all()
     serializer_class=sbserializers.AdminSerializer
     filterset_fields=['school']
-    
+
 class BillingCategoryViewSet(viewsets.ModelViewSet):
     queryset=smodels.BillingCategory.objects.all()
     serializer_class=sbserializers.BillingCategorySerializer
+    filterset_fields=['school']
+
+class DormitoryViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Dormitory.objects.all()
+    serializer_class=sbserializers.DormitorySerializer
     filterset_fields=['school']

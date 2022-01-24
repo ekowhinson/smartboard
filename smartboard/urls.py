@@ -10,4 +10,5 @@ router.register('academicyear',sbviews.AcademicYearViewSet,basename='academicyea
 router.register('accountrole',sbviews.AccountRoleViewSet,basename='accountrole')
 router.register('admin',sbviews.AdminViewSet,basename='admin')
 router.register('billingcategory',sbviews.BillingCategoryViewSet,basename='billingcategory')
+router.register('dormitory',sbviews.DormitoryViewSet,basename='dormitory')
 urlpatterns=router.urls
