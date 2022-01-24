@@ -316,3 +316,23 @@ class InvoiceSrializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Invoice
         fields='__all__'
+
+class PaymentMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.PaymentMethod
+        fields='__all__'
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Payment
+        fields='__all__'
+
+class LedgerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Ledger
+        fields='__all__'
+
+class LedgerSummarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.LedgerSummary
+        fields='__all__'

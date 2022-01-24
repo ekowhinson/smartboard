@@ -309,3 +309,23 @@ class InvoiceViewSet(viewsets.ModelViewSet):
     queryset=smodels.Invoice.objects.all()
     serializer_class=sbserializers.InvoiceSrializer
     filterset_fields=['school','invoice_type','student_id','title','creation_date','status','class_id','fees_id']
+
+class PaymentMethodViewSet(viewsets.ModelViewSet):
+    queryset=smodels.PaymentMethod.objects.all()
+    serializer_class=sbserializers.PaymentMethodSerializer
+    filterset_fields=['school']
+
+class PaymentViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Payment.objects.all()
+    serializer_class=sbserializers.PaymentSerializer
+    filterset_fields=['school']
+
+class LedgerViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Ledger.objects.all()
+    serializer_class=sbserializers.LedgerSerializer
+    filterset_fields=['school']
+
+class LedgerSummaryViewSet(viewsets.ModelViewSet):
+    queryset=smodels.LedgerSummary.objects.all()
+    serializer_class=sbserializers.LedgerSummarySerializer
+    filterset_fields=['school']
