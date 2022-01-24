@@ -64,5 +64,5 @@ class ClassesSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        models=smbmodels.Student
+        model=smbmodels.Student
         fields='__all__'
