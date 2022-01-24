@@ -19,7 +19,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-schema_view=get_schema_view(openapi.Info(title="GHLOX API",default_version="v1",description="Ghana Loan Exchange API",terms_of_service="only authorized users",contact=openapi.Contact(email="ekowhinson@gmail.com"),license=openapi.License(name="BSD License"),),public=True,permission_classes=(permissions.AllowAny,),)
+schema_view=get_schema_view(openapi.Info(title="SMARTBOARD API",default_version="v1",description="Smartboard API",terms_of_service="only authorized users",contact=openapi.Contact(email="ekowhinson@gmail.com"),license=openapi.License(name="BSD License"),),public=True,permission_classes=(permissions.AllowAny,),)
 
 
 

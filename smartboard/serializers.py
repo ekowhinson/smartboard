@@ -296,3 +296,23 @@ class AttendanceSrializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Attendance
         fields='__all__'
+
+class BookRequestSrializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.BookRequest
+        fields='__all__'
+
+class FeeGroupSrializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.FeeGroup
+        fields='__all__'
+
+class FeesSrializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Fees
+        fields='__all__'
+
+class InvoiceSrializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Invoice
+        fields='__all__'

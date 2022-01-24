@@ -289,3 +289,23 @@ class AttendanceViewSet(viewsets.ModelViewSet):
     queryset=smodels.Attendance.objects.all()
     serializer_class=sbserializers.AttendanceSerializer
     filterset_fields=['school']
+
+class BookRequestViewSet(viewsets.ModelViewSet):
+    queryset=smodels.BookRequest.objects.all()
+    serializer_class=sbserializers.BookRequestSrializer
+    filterset_fields=['school']
+
+class FeeGroupViewSet(viewsets.ModelViewSet):
+    queryset=smodels.FeeGroup.objects.all()
+    serializer_class=sbserializers.FeeGroupSrializer
+    filterset_fields=['school']
+
+class FeesViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Fees.objects.all()
+    serializer_class=sbserializers.FeesSrializer
+    filterset_fields=['school']
+
+class InvoiceViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Invoice.objects.all()
+    serializer_class=sbserializers.InvoiceSrializer
+    filterset_fields=['school']
