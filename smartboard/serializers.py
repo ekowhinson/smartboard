@@ -60,4 +60,4 @@ class LevelSerializer(serializers.ModelSerializer):
 class ClassesSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Classes
-        fiedls='__all__'
+        fields='__all__'
