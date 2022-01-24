@@ -222,7 +222,7 @@ class GroupMessageThreadViewSet(viewsets.ModelViewSet):
 
 class GroupMessageViewSet(viewsets.ModelViewSet):
     queryset=smodels.GroupMessage.objects.all()
-    serializer_class=sbserializers.GroupMessage
+    serializer_class=sbserializers.GroupMessageSerializer
     filterset_fields=['school']
 
 class GradeViewSet(viewsets.ModelViewSet):
