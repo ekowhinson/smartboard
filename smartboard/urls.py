@@ -27,4 +27,5 @@ router.register('settings',sbviews.SettingsViewSet,basename='settings')
 router.register('runningyear',sbviews.RunningYearViewSet,basename='runningyear')
 router.register('exams',sbviews.ExamViewSet,basename='exams')
 router.register('onlineexams',sbviews.OnlineExamViewSet,basename='onlineexams')
+router.register('response',sbviews.ResponseViewSet,basename='response')
 urlpatterns=router.urls
