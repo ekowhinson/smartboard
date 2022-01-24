@@ -214,3 +214,78 @@ class HomeWorkViewSet(viewsets.ModelViewSet):
     queryset=smodels.HomeWork.objects.all()
     serializer_class=sbserializers.HomeWorkSerializer
     filterset_fields=['school']
+
+class GroupMessageThreadViewSet(viewsets.ModelViewSet):
+    queryset=smodels.GroupMessageThread.objects.all()
+    serializer_class=sbserializers.GroupMessageThreadSerializer
+    filterset_fields=['school']
+
+class GroupMessageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.GroupMessage.objects.all()
+    serializer_class=sbserializers.GroupMessage
+    filterset_fields=['school']
+
+class GradeViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Grade.objects.all()
+    serializer_class=sbserializers.GradeSerializer
+    filterset_fields=['school']
+
+class ForumMessageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.ForumMessage.objects.all()
+    serializer_class=sbserializers.ForumMessageSerializer
+    filterset_fields=['school']
+
+class ForumViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Forum.objects.all()
+    serializer_class=sbserializers.ForumSerializer
+    filterset_fields=['school']
+
+class FolderViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Folder.objects.all()
+    serializer_class=sbserializers.FolderSerializer
+    filterset_fields=['school']
+
+class FileViewSet(viewsets.ModelViewSet):
+    queryset=smodels.File.objects.all()
+    serializer_class=sbserializers.FileSerializer
+    filterset_fields=['school']
+
+class ExpenseCategoryViewSet(viewsets.ModelViewSet):
+    queryset=smodels.ExpenseCategory.objects.all()
+    serializer_class=sbserializers.ExpenseCategorySerializer
+    filterset_fields=['school']
+
+class EventsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Events.objects.all()
+    serializer_class=sbserializers.EventsSerializer
+    filterset_fields=['school']
+
+class EnrollViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Enroll.objects.all()
+    serializer_class=sbserializers.EnrollSerializer
+    filterset_fields=['school']
+
+class DocumentViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Document.objects.all()
+    serializer_class=sbserializers.DocumentSerializer
+    filterset_fields=['school']
+
+class DeliveriesViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Deliveries.objects.all()
+    serializer_class=sbserializers.DeliveriesSerializer
+    filterset_fields=['school']
+
+class ClassRoutineViewSet(viewsets.ModelViewSet):
+    queryset=smodels.ClassRoutine.objects.all()
+    serializer_class=sbserializers.ClassRoutineSerializer
+    filterset_fields=['school']
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Book.objects.all()
+    serializer_class=sbserializers.BookSerializer
+    filterset_fields=['school']
+
+class AttendanceViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Attendance.objects.all()
+    serializer_class=sbserializers.AttendanceSerializer
+    filterset_fields=['school']

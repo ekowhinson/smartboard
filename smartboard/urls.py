@@ -1,5 +1,6 @@
 from distutils.log import set_verbosity
 from posixpath import basename
+from signal import SIG_BLOCK
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 from . import views as sbviews
@@ -20,6 +21,7 @@ router.register('student',sbviews.StudentViewSet,basename='student')
 router.register('classgroup',sbviews.ClassGroupViewSet,basename='classgroup')
 router.register('section',sbviews.SectionViewSet,basename='section')
 router.register('ticket',sbviews.TicketViewSet,basename='ticket')
+router.register('subject',sbviews.SubjectViewSet,basename='subject')
 router.register('ticketmessage',sbviews.TicketViewSet,basename='ticketmessage')
 router.register('teacherattendance',sbviews.TeacherAttendanceViewSet,basename='teacherattendance')
 router.register('studentrequest',sbviews.StudentRequestViewSet,basename='studentrequest')
@@ -45,4 +47,19 @@ router.register('live',sbviews.LiveViewSet,basename='live')
 router.register('librarian',sbviews.LibrarianViewSet,basename='librarian')
 router.register('language',sbviews.LanguageViewSet,basename='language')
 router.register('homework',sbviews.HomeWorkViewSet,basename='homework')
+router.register('groupmessagethread',sbviews.GroupMessageThreadViewSet,basename='groupmessagethread')
+router.register('groupmessage',sbviews.GroupMessageViewSet,basename='groupmessage')
+router.register('grade',sbviews.GradeViewSet,basename='grade')
+router.register('forummessage',sbviews.ForumMessageViewSet,basename='forummessage')
+router.register('forum',sbviews.ForumViewSet,basename='forum')
+router.register('folder',sbviews.FolderViewSet,basename='folder')
+router.register('file',sbviews.FileViewSet,basename='file')
+router.register('expensecategory',sbviews.FileViewSet,basename='expensecategory')
+router.register('events',sbviews.EventsViewSet,basename='events')
+router.register('enroll',sbviews.EnrollViewSet,basename='enroll')
+router.register('document',sbviews.DocumentViewSet,basename='document')
+router.register('deliveries',sbviews.DeliveriesViewSet,basename='deliveries')
+router.register('classroutine',sbviews.ClassRoutineViewSet,basename='classroutine')
+router.register('Book',sbviews.ClassRoutineViewSet,basename='Book')
+router.register('attendance',sbviews.AttendanceViewSet,basename='attendance')
 urlpatterns=router.urls

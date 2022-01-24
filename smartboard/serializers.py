@@ -221,3 +221,78 @@ class HomeWorkSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.HomeWork
         fields='__all__'
+
+class GroupMessageThreadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.GroupMessageThread
+        fields='__all__'
+
+class GroupMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.GroupMessage
+        fields='__all__'
+
+class GradeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Grade
+        fields='__all__'
+
+class ForumMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.ForumMessage
+        fields='__all__'
+
+class ForumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Forum
+        fields='__all__'
+
+class FolderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Folder
+        fields='__all__'
+
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.File
+        fields='__all__'
+
+class ExpenseCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.ExpenseCategory
+        fields='__all__'
+
+class EventsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Events
+        fields='__all__'
+
+class EnrollSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Enroll
+        fields='__all__'
+
+class DocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Document
+        fields='__all__'
+
+class DeliveriesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Deliveries
+        fields='__all__'
+
+class ClassRoutineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.ClassRoutine
+        fields='__all__'
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Book
+        fields='__all__'
+
+class AttendanceSrializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Attendance
+        fields='__all__'
