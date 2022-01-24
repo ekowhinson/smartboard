@@ -131,3 +131,53 @@ class ResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Response
         fields='__all__'
+
+class RemarksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Remarks
+        fields='__all__'
+
+class QuestionPaperSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.QuestionPaper
+        fields='__all__'
+
+class QuestionBankSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.QuestionBank
+        fields='__all__'
+
+class PollsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Polls
+        fields='__all__'
+
+class PollResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.PollResponse
+        fields='__all__'
+
+class PendingUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.PendingUsers
+        fields='__all__'
+
+class OnlineUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.OnlineUsers
+        fields='__all__'
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Notification
+        fields='__all__'
+
+class OnlineExamResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.OnlineExamResult
+        fields='__all__'
+
+class NoticeMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.NoticeMessage
+        fields='__all__'

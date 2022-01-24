@@ -129,3 +129,48 @@ class ResponseViewSet(viewsets.ModelViewSet):
     queryset=smodels.Response.objects.all()
     serializer_class=sbserializers.ResponseSerializer
     filterset_fields=['school']
+
+class RemarksViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Remarks.objects.all()
+    serializer_class=sbserializers.RemarksSerializer
+    filterset_fields=['school']
+
+class QuestionPaperViewSet(viewsets.ModelViewSet):
+    queryset=smodels.QuestionPaper.objects.all()
+    serializer_class=sbserializers.QuestionPaperSerializer
+    filterset_fields=['school']
+
+class PollsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Polls.objects.all()
+    serializer_class=sbserializers.PollsSerializer
+    filterset_fields=['school']
+
+class PollResponseViewSet(viewsets.ModelViewSet):
+    queryset=smodels.PollResponse.objects.all()
+    serializer_class=sbserializers.PollResponseSerializer
+    filterset_fields=['school']
+
+class PendingUsersViewSet(viewsets.ModelViewSet):
+    queryset=smodels.PendingUsers.objects.all()
+    serializer_class=sbserializers.PendingUsersSerializer
+    filterset_fields=['school']
+
+class OnlineUsersViewSet(viewsets.ModelViewSet):
+    queryset=smodels.OnlineUsers.objects.all()
+    serializer_class=sbserializers.OnlineUsersSerializer
+    filterset_fields=['school']
+
+class NotificationViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Notification.objects.all()
+    serializer_class=sbserializers.NotificationSerializer
+    filterset_fields=['school']
+
+class OnlineExamResultViewSet(viewsets.ModelViewSet):
+    queryset=smodels.OnlineExamResult.objects.all()
+    serializer_class=sbserializers.OnlineExamResultSerializer
+    filterset_fields=['school']
+
+class NoticeMessageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.NoticeMessage.objects.all()
+    serializer_class=sbserializers.NoticeMessageSerializer
+    filterset_fields=['school']
