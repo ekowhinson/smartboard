@@ -39,3 +39,7 @@ class DormitoryViewSet(viewsets.ModelViewSet):
     queryset=smodels.Dormitory.objects.all()
     serializer_class=sbserializers.DormitorySerializer
     filterset_fields=['school']
+
+class TeacherViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Teacher.objects.all()
+    filterset_fields=['school']

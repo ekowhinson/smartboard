@@ -42,3 +42,7 @@ class DormitorySerializer(serializers.ModelSerializer):
         model=smbmodels.Dormitory
         fields='__all__'
 
+class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Teacher
+        fields='__all__'
