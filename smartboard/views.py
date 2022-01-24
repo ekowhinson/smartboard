@@ -64,3 +64,8 @@ class StudentViewSet(viewsets.ModelViewSet):
     queryset=smodels.Student.objects.all()
     serializer_class=sbserializers.StudentSerializer
     filterset_fields=['school']
+
+class ClassGroupViewSet(viewsets.ModelViewSet):
+    queryset=smodels.ClassGroup.objects.all()
+    serializer_class=sbserializers.ClassGroupSerializer
+    filterset_fields=['school']
