@@ -9,4 +9,5 @@ router.register('academicsettings',sbviews.AcademicSettingsViewSet,basename='aca
 router.register('academicyear',sbviews.AcademicYearViewSet,basename='academicyear')
 router.register('accountrole',sbviews.AccountRoleViewSet,basename='accountrole')
 router.register('admin',sbviews.AdminViewSet,basename='admin')
+router.register('billingcategory',sbviews.BillingCategoryViewSet,basename='billingcategory')
 urlpatterns=router.urls

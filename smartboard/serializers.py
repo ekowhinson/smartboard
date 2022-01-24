@@ -31,3 +31,9 @@ class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Attendance
         fields='__all__'
+
+class BillingCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.BillingCategory
+        fields='__all__'
+        
