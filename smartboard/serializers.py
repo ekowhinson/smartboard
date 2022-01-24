@@ -126,3 +126,8 @@ class ReportsSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Reports
         fields='__all__'
+
+class ResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Response
+        fields='__all__'
