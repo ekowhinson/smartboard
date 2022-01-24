@@ -38,7 +38,7 @@ class AcademicSettings(models.Model):
         return f'{self.school}: {self.type} {self.description}'
 
 class AcademicYear(models.Model):
-    running_year=models.IntegerField()
+    running_year=models.CharField(max_length=50)
     description=models.CharField(max_length=50)
     status=models.IntegerField()
     school=models.ForeignKey(School,on_delete=models.CASCADE)
