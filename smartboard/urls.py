@@ -37,4 +37,6 @@ router.register('onlineusers',sbviews.OnlineUsersViewSet,basename='onlineusers')
 router.register('notification',sbviews.NotificationViewSet,basename='notification')
 router.register('onlineexamresult',sbviews.OnlineExamResultViewSet,basename='onlineexamresult')
 router.register('noticemessage',sbviews.NoticeMessageViewSet,basename='noticemessage')
+router.register('news',sbviews.NewsViewSet,basename='news')
+router.register('messagethread',sbviews.MessageThreadViewSet,basename='messagethread')
 urlpatterns=router.urls

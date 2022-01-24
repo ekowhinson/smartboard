@@ -181,3 +181,13 @@ class NoticeMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.NoticeMessage
         fields='__all__'
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.News
+        fields='__all__'
+
+class MessageThreadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.MessageThread
+        fields='__all__'

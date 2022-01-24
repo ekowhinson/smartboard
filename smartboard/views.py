@@ -174,3 +174,13 @@ class NoticeMessageViewSet(viewsets.ModelViewSet):
     queryset=smodels.NoticeMessage.objects.all()
     serializer_class=sbserializers.NoticeMessageSerializer
     filterset_fields=['school']
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.News.objects.all()
+    serializer_class=sbserializers.NewsSerializer
+    filterset_fields=['school']
+
+class MessageThreadViewSet(viewsets.ModelViewSet):
+    queryset=smodels.MessageThread.objects.all()
+    serializer_class=sbserializers.MessageThreadSerializer
+    filterset_fields=['school']
