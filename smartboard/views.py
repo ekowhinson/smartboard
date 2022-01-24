@@ -124,3 +124,8 @@ class ReportsViewSet(viewsets.ModelViewSet):
     queryset=smodels.Reports.objects.all()
     serializer_class=sbserializers.ReportsSerializer
     filterset_fields=['school']
+
+class ResponseViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Response.objects.all()
+    serializer_class=sbserializers.ResponseSerializer
+    filterset_fields=['school']

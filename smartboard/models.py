@@ -332,7 +332,7 @@ class Reports(models.Model):
     def __str__(self):
         return f'{self.school}: {self.title} {self.class_id} {self.description}'
 
-class response(models.Model):
+class Response(models.Model):
     message=models.CharField(max_length=250)
     date=models.DateField(auto_now_add=True)
     report_code=models.ForeignKey(Reports,on_delete=models.CASCADE)
