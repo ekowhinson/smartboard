@@ -96,3 +96,33 @@ class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Subject
         fields='__all__'
+
+class StudentRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.StudentRequest
+        fields='__all__'
+
+class SettingsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.settings
+        fields='__all__'
+
+class RunningYearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.RunningYear
+        fields='__all__'
+
+class ExamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Exam
+        fields='__all__'
+
+class OnlineExamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.OnlineExam
+        fields='__all__'
+
+class ReportsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Reports
+        fields='__all__'

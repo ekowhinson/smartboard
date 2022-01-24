@@ -94,3 +94,33 @@ class SubjectViewSet(viewsets.ModelViewSet):
     queryset=smodels.Subject.objects.all()
     serializer_class=sbserializers.SubjectSerializer
     filterset_fields=['school']
+
+class StudentRequestViewSet(viewsets.ModelViewSet):
+    queryset=smodels.StudentRequest.objects.all()
+    serializer_class=sbserializers.StudentRequestSerializer
+    filterset_fields=['school']
+
+class SettingsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.settings.objects.all()
+    serializer_class=sbserializers.SettingsSerializer
+    filterset_fields=['school']
+
+class RunningYearViewSet(viewsets.ModelViewSet):
+    queryset=smodels.RunningYear.objects.all()
+    serializer_class=sbserializers.RunningYearSerializer
+    filterset_fields=['school']
+
+class ExamViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Exam.objects.all()
+    serializer_class=sbserializers.ExamSerializer
+    filterset_fields=['school']
+
+class OnlineExamViewSet(viewsets.ModelViewSet):
+    queryset=smodels.OnlineExam.objects.all()
+    serializer_class=sbserializers.OnlineExamSerializer
+    filterset_fields=['school']
+
+class ReportsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Reports.objects.all()
+    serializer_class=sbserializers.ReportsSerializer
+    filterset_fields=['school']
