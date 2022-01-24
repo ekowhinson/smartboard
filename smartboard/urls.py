@@ -1,3 +1,4 @@
+from distutils.log import set_verbosity
 from posixpath import basename
 from django.urls import path
 from rest_framework.routers import SimpleRouter
@@ -17,5 +18,8 @@ router.register('level',sbviews.LevelViewSet,basename='level')
 router.register('class',sbviews.ClassesViewSet,basename='class')
 router.register('student',sbviews.StudentViewSet,basename='student')
 router.register('classgroup',sbviews.ClassGroupViewSet,basename='classgroup')
-
+router.register('section',sbviews.SectionViewSet,basename='section')
+router.register('ticket',sbviews.TicketViewSet,basename='ticket')
+router.register('ticketmessage',sbviews.TicketViewSet,basename='ticketmessage')
+router.register('teacherattendance',sbviews.TeacherAttendanceViewSet,basename='teacherattendance')
 urlpatterns=router.urls

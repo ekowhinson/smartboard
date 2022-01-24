@@ -69,3 +69,28 @@ class ClassGroupViewSet(viewsets.ModelViewSet):
     queryset=smodels.ClassGroup.objects.all()
     serializer_class=sbserializers.ClassGroupSerializer
     filterset_fields=['school']
+
+class SectionViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Section.objects.all()
+    serializer_class=sbserializers.SectionSerializer
+    filterset_fields=['school']
+
+class TicketViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Ticket.objects.all()
+    serializer_class=sbserializers.TicketSerializer
+    filterset_fields=['school']
+
+class TicketMessageViewSet(viewsets.ModelViewSet):
+    queryset=smodels.TicketMessage.objects.all()
+    serializer_class=sbserializers.TicketMessageSerializer
+    filterset_fields=['school']
+
+class TeacherAttendanceViewSet(viewsets.ModelViewSet):
+    queryset=smodels.TeacherAttendance.objects.all()
+    serializer_class=sbserializers.TeacherAttendanceSerializer
+    filterset_fields=['school']
+
+class SubjectViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Subject.objects.all()
+    serializer_class=sbserializers.SubjectSerializer
+    filterset_fields=['school']

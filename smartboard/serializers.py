@@ -71,3 +71,28 @@ class ClassGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.ClassGroup
         fields='__all__'
+
+class SectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Section
+        fields='__all__'
+
+class TicketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Ticket
+        fields='__all__'
+
+class TicketMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.TicketMessage
+        fields='__all__'
+
+class TeacherAttendanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.TeacherAttendance
+        fields='__all__'
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Subject
+        fields='__all__'
