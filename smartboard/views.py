@@ -8,7 +8,7 @@ from . import serializers as sbserializers
 class SchoolViewSet(viewsets.ModelViewSet):
     queryset=smodels.School.objects.all()
     serializer_class=sbserializers.SchoolSerializer
-    filterset_fields=['name']
+    filterset_fields=['id','name']
 
 class AcademicSettingsViewSet(viewsets.ModelViewSet):
     queryset=smodels.AcademicSettings.objects.all()
