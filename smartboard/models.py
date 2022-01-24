@@ -24,7 +24,7 @@ class School(models.Model):
 class AccountRole(models.Model):
     type=models.CharField(max_length=50)
     permissions=models.IntegerField()
-    School=models.ForeignKey(School,on_delete=models.CASCADE)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.School}: {self.type} {self.permissions}'
