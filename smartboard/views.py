@@ -7,5 +7,5 @@ from . import serializers as sbserializers
 
 class SchoolViewSet(viewsets.ModelViewSet):
     queryset=smodels.School.objects.all()
-    serizer_class=sbserializers.SchoolSerializer
+    serializer_class=sbserializers.SchoolSerializer
     filterset_fields=['name']
