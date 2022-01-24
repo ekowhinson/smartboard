@@ -15,6 +15,6 @@ router.register('teacher',sbviews.TeacherViewSet,basename='teacher')
 router.register('parent',sbviews.ParentViewSet,basename='parent')
 router.register('level',sbviews.LevelViewSet,basename='level')
 router.register('class',sbviews.ClassesViewSet,basename='class')
-
+router.register('student',sbviews.StudentViewSet,basename='student')
 
 urlpatterns=router.urls
