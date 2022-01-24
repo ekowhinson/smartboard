@@ -3,6 +3,7 @@ from numbers import Integral
 import re
 from runpy import _ModifiedArgv0
 from sqlite3 import Timestamp
+from tkinter import N
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -138,11 +139,17 @@ class Level(models.Model):
     def __str__(self):
         return f'{self.school}: {self.name}'
 
+class ClassGroup(models.Model):
+    name=models.CharField(max_length=50)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school} {self.name}'
+
 class Classes(models.Model):
     name=models.CharField(max_length=50)
-    teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
-    level_id=models.ForeignKey(Level,on_delete=models.CASCADE)
-    gid=models.IntegerField()
+    teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE,blank=True,null=True)
+    gid=models.ForeignKey(ClassGroup,on_delete=models.CASCADE,related_name='gid')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -177,14 +184,6 @@ class Student(models.Model):
     year=models.IntegerField(null=True,blank=True)
     userid=models.ForeignKey(User,on_delete=models.CASCADE,related_name='students')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
-
-
-class ClassGroup(models.Model):
-    name=models.CharField(max_length=50)
-    school=models.ForeignKey(School,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.school} {self.name}'
 
 class Section(models.Model):
     name=models.CharField(max_length=150)
@@ -276,14 +275,6 @@ class settings(models.Model):
 
     def __str__(self):
         return f'{self.school}: {self.type} {self.description}'
-
-class RunningYear(models.Model):
-    academic_year=models.IntegerField()
-    description=models.CharField(max_length=150)
-    school=models.ForeignKey(School,on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.school}: {self.description} {self.academic_year}'
 
 class Exam(models.Model):
     name=models.CharField(max_length=50)

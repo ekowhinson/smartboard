@@ -105,11 +105,6 @@ class SettingsViewSet(viewsets.ModelViewSet):
     serializer_class=sbserializers.SettingsSerializer
     filterset_fields=['school']
 
-class RunningYearViewSet(viewsets.ModelViewSet):
-    queryset=smodels.RunningYear.objects.all()
-    serializer_class=sbserializers.RunningYearSerializer
-    filterset_fields=['school']
-
 class ExamViewSet(viewsets.ModelViewSet):
     queryset=smodels.Exam.objects.all()
     serializer_class=sbserializers.ExamSerializer
