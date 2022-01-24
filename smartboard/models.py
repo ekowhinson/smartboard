@@ -74,7 +74,7 @@ class Admin(models.Model):
     p_edit=models.IntegerField()
     p_view=models.IntegerField()
     p_delete=models.IntegerField()
-    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    userid=models.ForeignKey(User,on_delete=models.CASCADE,related_name='admins')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -102,7 +102,7 @@ class Teacher(models.Model):
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     image=models.CharField(max_length=150)
     date=models.DateField()
-    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    userid=models.ForeignKey(User,on_delete=models.CASCADE,related_name='teachers')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
     
     def __str__(self):
@@ -125,7 +125,7 @@ class Parent(models.Model):
     home_phone=models.CharField(max_length=40,blank=True,null=True)
     image=models.CharField(max_length=150,blank=True,null=True)
     date=models.DateField(auto_now_add=True)
-    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    userid=models.ForeignKey(User,on_delete=models.CASCADE,related_name='parents')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
@@ -175,7 +175,7 @@ class Student(models.Model):
     authorized_phone=models.CharField(max_length=40,null=True,blank=True)
     note=models.CharField(max_length=200,null=True,blank=True)
     year=models.IntegerField(null=True,blank=True)
-    userid=models.ForeignKey(User,on_delete=models.CASCADE)
+    userid=models.ForeignKey(User,on_delete=models.CASCADE,related_name='students')
     school=models.ForeignKey(School,on_delete=models.CASCADE)
 
 
