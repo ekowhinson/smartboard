@@ -42,6 +42,7 @@ class DormitoryViewSet(viewsets.ModelViewSet):
 
 class TeacherViewSet(viewsets.ModelViewSet):
     queryset=smodels.Teacher.objects.all()
+    serializer_class=sbserializers.TeacherSerializer
     filterset_fields=['school']
 
 class ParentViewSet(viewsets.ModelViewSet):
@@ -50,13 +51,11 @@ class ParentViewSet(viewsets.ModelViewSet):
     filterset_fields=['school']
 
 class LevelViewSet(viewsets.ModelViewSet):
-    class Meta:
-        queryset=smodels.Level.objects.all()
-        serializer_class=sbserializers.LevelSerializer
-        filterset_fields= ['school']
+    queryset=smodels.Level.objects.all()
+    serializer_class=sbserializers.LevelSerializer
+    filterset_fields= ['school']
 
 class ClassesViewSet(viewsets.ModelViewSet):
-    class Meta:
-        queryset=smodels.Classes.objects.all()
-        serializer_class=sbserializers.ClassesSerializer
-        filterset_fields=['school']
+    queryset=smodels.Classes.objects.all()
+    serializer_class=sbserializers.ClassesSerializer
+    filterset_fields=['school']
