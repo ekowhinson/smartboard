@@ -1,3 +1,4 @@
+from colorsys import ONE_THIRD
 from email import charset
 from numbers import Integral
 import re
@@ -931,3 +932,28 @@ class LedgerSummary(models.Model):
     
     def __str__(self):
         return f'{self.school}: {self.invoice_id} {self.invoice_amount} {self.total_paid} {self.total_outstanding}'
+
+class ClassSubject(models.Model):
+    subject_id=models.ForeignKey(Subject,on_delete=models.CASCADE)
+    name=models.CharField(max_length=50)
+    class_id=models.ForeignKey(Classes,on_delete=models.CASCADE)
+    teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    year=models.IntegerField()
+    la1=models.CharField(max_length=50,blank=True,null=True)
+    la2=models.CharField(max_length=50,blank=True,null=True)
+    la3=models.CharField(max_length=50,blank=True,null=True)
+    la4=models.CharField(max_length=50,blank=True,null=True)
+    la5=models.CharField(max_length=50,blank=True,null=True)
+    la6=models.CharField(max_length=50,blank=True,null=True)
+    la7=models.CharField(max_length=50,blank=True,null=True)
+    la8=models.CharField(max_length=50,blank=True,null=True)
+    la9=models.CharField(max_length=50,blank=True,null=True)
+    la10=models.CharField(max_length=50,blank=True,null=True)
+    section_id=models.CharField(Section,on_delete=models.CASCADE)
+    exam_id=models.ForeignKey(Exam,on_delete=models.CASCADE)
+    color=models.CharField(max_length=50,blank=True,null=True)
+    icon=models.CharField(max_length=50,blank=True,null=True)
+    school=models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name} {self.subject_id} {self.class_id} {self.section_id}'
