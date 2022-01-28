@@ -948,7 +948,7 @@ class ClassSubject(models.Model):
     la8=models.CharField(max_length=50,blank=True,null=True)
     la9=models.CharField(max_length=50,blank=True,null=True)
     la10=models.CharField(max_length=50,blank=True,null=True)
-    section_id=models.ForeingKey(Section,on_delete=models.CASCADE)
+    section_id=models.ForeignKey(Section,on_delete=models.CASCADE)
     exam_id=models.ForeignKey(Exam,on_delete=models.CASCADE)
     color=models.CharField(max_length=50,blank=True,null=True)
     icon=models.CharField(max_length=50,blank=True,null=True)
