@@ -1,4 +1,3 @@
-from msilib.schema import Class
 from django.contrib import admin
 from . import models as smbmodels
 # Register your models here.
