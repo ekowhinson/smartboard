@@ -748,6 +748,7 @@ class Enroll(models.Model):
     date_added=models.DateField()
     year=models.IntegerField()
     school=models.ForeignKey(School,on_delete=models.CASCADE)
+    term_id = models.ForeignKey(Exam,on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.school} {self.student_id} {self.student_id} {self.class_id} {self.section_id}'
