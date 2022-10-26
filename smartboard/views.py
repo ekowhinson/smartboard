@@ -324,3 +324,23 @@ class LedgerSummaryViewSet(viewsets.ModelViewSet):
     queryset=smodels.LedgerSummary.objects.all()
     serializer_class=sbserializers.LedgerSummarySerializer
     filterset_fields=['school']
+
+class ApplicantsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Applicants.objects.all()
+    serializer_class=sbserializers.ApplicantsSerializer
+    filterset_fields=['school']
+
+class ProgramsViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Programs.objects.all()
+    serializer_class=sbserializers.ProgramsSerializer
+    filterset_fields=['school']
+
+class CoursesViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Courses.objects.all()
+    serializer_class=sbserializers.CoursesSerializer
+    filterset_fields=['school']
+
+class MarksViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Marks.objects.all()
+    serializer_class=sbserializers.MarksSerializer
+    filterset_fields=['school']

@@ -1,9 +1,5 @@
-from colorsys import ONE_THIRD
-from email import charset
-from numbers import Integral
+from datetime import datetime
 import re
-from runpy import _ModifiedArgv0
-from sqlite3 import Timestamp
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -964,3 +960,74 @@ class ClassSubject(models.Model):
 
     def __str__(self):
         return f'{self.school}: {self.name} {self.subject_id} {self.class_id} {self.section_id}'
+
+class Applicants(models.Model):
+    first_name = models.CharField(max_length = 100)
+    last_name = models.CharField(max_length = 100)
+    other_names = models.CharField(max_length = 200,null=True,blank=True)
+    phone = models.CharField(max_length = 50,null=True,blank = True)
+    mobile = models.CharField(max_length = 50,null = True,null=True)
+    address = models.CharField(max_length = 200, null = True, blank = True)
+    region = models.ForeignKey('Region',on_delete = models.CASCADE)
+    country = models.ForeignKey('Country',on_delete = models.CASCADE)
+    nationality = models.ForeignKey('Nationality',on_delete = models.CASCADE)
+    email = models.EmailField()
+    username = models.CharField(max_length = 100,null = True,blank = True)
+    password = models.CharField(max_length = 100,null = True, blank = True)
+    birth_date = models.DateField()
+    sex = models.CharField(max_length = 20,options=(('Male','male'),('Female','female')))
+    academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
+    term = models.ForeignKey('Term',on_delete = models.CASCADE)
+    program = models.ForeignKey('Program',on_delete = models.CASCADE)
+    creation_date = models.DateTimeField(auto_now = True)
+    approval_status = models.IntegerField(blank=True,null=True)
+    approved_by = models.ForeignKey(User,on_delete = models.DO_NOTHING)
+    approval_date = models.DateTimeField()
+    vetting_status = models.IntegerField()
+    vetted_by = models.ForeignKey(User,on_delete = models.DO_NOTHING)
+    vetted_date = models.DateField()
+    application_status = models.IntegerField()
+    index_number = models.CharField(max_length = 100,null=True,blank=True)
+    admission_closed = models.IntegerField(null=True,blank=True)
+    school = models.ForeignKey(School,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.first_name} {self.last_name}'
+
+class Programs(models.Model):
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 200)
+    credential = models.ForeignKey(User,on_delete=models.CASCADE)
+    creation_date = models.DateTimeField(auto_now=True)
+    school = models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.code} {self.name}'
+
+class Courses(models.Model):
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 200)
+    credit = models.DecimalField(max_digits = 8,decimal_places = 2)
+    type = models.CharField(max_length = 50,choices = (('Elective','elective'),('Core','core')))
+    lecturer_id = models.ForeignKey('Lecturer',on_delete = models.CASCADE)
+    program_id = models.ForeignKey(Programs,on_delete = models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
+    school = models.ForeignKey(School,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.code} {self.name}'
+
+class Marks(models.Model):
+    student_id=models.ForeignKey(Student,on_delete = models.CASCADE)
+    name = models.CharField(max_length=200,null=True,blank=True)
+    credit = models.DecimalField(max_length = 8, decimal_places = 2)
+    type = models.CharField(max_length = 50,choices=(('Elective','elective'),('Core','core')))
+    lecturer_id = models.ForeignKey('Lecturer',on_delete=models.CASCADE)
+    program_id = models.ForeignKey(Programs,on_delete = models.CASCADE)
+    academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
+    term = models.ForeignKey('Term',on_delete = models.CASCADE)
+    exam_score = models.DecimalField(max_digits = 8,decimal_places = 2)
+    quiz_score = models.DecimalField(max_digits =8,deciaml_places = 2)
+    total_score = models.DecimalField(max_digits = 8, decimal_places = 2)
+    grade = models.CharField(max_length=50)
+    creation_date = models.DateTimeField(auto_now=True)

@@ -336,3 +336,23 @@ class LedgerSummarySerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.LedgerSummary
         fields='__all__'
+
+class ApplicantsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Applicants
+        fields='__all__'
+
+class ProgramsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Programs
+        fields='__all__'
+
+class CoursesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Courses
+        fields='__all__'
+
+class MarksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Marks
+        fields='__all__'
