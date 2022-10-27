@@ -1028,7 +1028,7 @@ class Marks(models.Model):
     academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
     term = models.ForeignKey('Term',on_delete = models.CASCADE)
     exam_score = models.DecimalField(max_digits = 8,decimal_places = 2)
-    quiz_score = models.DecimalField(max_digits =8,deciaml_places = 2)
+    quiz_score = models.DecimalField(max_digits =8,decimal_places = 2)
     total_score = models.DecimalField(max_digits = 8, decimal_places = 2)
     grade = models.CharField(max_length=50)
     creation_date = models.DateTimeField(auto_now=True)
