@@ -980,7 +980,7 @@ class Applicants(models.Model):
     sex = models.CharField(max_length = 20,choices=(('Male','male'),('Female','female')))
     academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
     term = models.ForeignKey('Term',on_delete = models.CASCADE)
-    program = models.ForeignKey('Program',on_delete = models.CASCADE)
+    program = models.ForeignKey('Programs',on_delete = models.CASCADE)
     creation_date = models.DateTimeField(auto_now = True)
     approval_status = models.IntegerField(blank=True,null=True)
     approved_by = models.ForeignKey(User,on_delete = models.DO_NOTHING,related_name = 'approver')
