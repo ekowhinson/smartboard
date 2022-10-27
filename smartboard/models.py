@@ -966,7 +966,7 @@ class Applicants(models.Model):
     last_name = models.CharField(max_length = 100)
     other_names = models.CharField(max_length = 200,null=True,blank=True)
     phone = models.CharField(max_length = 50,null=True,blank = True)
-    mobile = models.CharField(max_length = 50,null = True,null=True)
+    mobile = models.CharField(max_length = 50,null = True,blank=True)
     address = models.CharField(max_length = 200, null = True, blank = True)
     region = models.ForeignKey('Region',on_delete = models.CASCADE)
     country = models.ForeignKey('Country',on_delete = models.CASCADE)
