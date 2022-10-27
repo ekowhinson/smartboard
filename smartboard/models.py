@@ -1,6 +1,7 @@
 from datetime import datetime
 from random import choices
 import re
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -982,7 +983,7 @@ class Applicants(models.Model):
     program = models.ForeignKey('Program',on_delete = models.CASCADE)
     creation_date = models.DateTimeField(auto_now = True)
     approval_status = models.IntegerField(blank=True,null=True)
-    approved_by = models.ForeignKey(User,on_delete = models.DO_NOTHING)
+    approved_by = models.ForeignKey(User,on_delete = models.DO_NOTHING,related_name = 'approver')
     approval_date = models.DateTimeField()
     vetting_status = models.IntegerField()
     vetted_by = models.ForeignKey(User,on_delete = models.DO_NOTHING)
@@ -1010,7 +1011,7 @@ class Courses(models.Model):
     name = models.CharField(max_length = 200)
     credit = models.DecimalField(max_digits = 8,decimal_places = 2)
     type = models.CharField(max_length = 50,choices = (('Elective','elective'),('Core','core')))
-    lecturer_id = models.ForeignKey('Lecturer',on_delete = models.CASCADE)
+    lecturer_id = models.ForeignKey('UserSetup',on_delete = models.CASCADE)
     program_id = models.ForeignKey(Programs,on_delete = models.CASCADE)
     date = models.DateTimeField(auto_now=True)
     school = models.ForeignKey(School,on_delete = models.CASCADE)
@@ -1023,7 +1024,7 @@ class Marks(models.Model):
     name = models.CharField(max_length=200,null=True,blank=True)
     credit = models.DecimalField(max_length = 8, decimal_places = 2)
     type = models.CharField(max_length = 50,choices=(('Elective','elective'),('Core','core')))
-    lecturer_id = models.ForeignKey('Lecturer',on_delete=models.CASCADE)
+    lecturer_id = models.ForeignKey('UserSetup',on_delete=models.CASCADE)
     program_id = models.ForeignKey(Programs,on_delete = models.CASCADE)
     academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
     term = models.ForeignKey('Term',on_delete = models.CASCADE)
@@ -1032,3 +1033,69 @@ class Marks(models.Model):
     total_score = models.DecimalField(max_digits = 8, decimal_places = 2)
     grade = models.CharField(max_length=50)
     creation_date = models.DateTimeField(auto_now=True)
+    school = models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class Nationality(models.Model):
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 100)
+    school = models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class RegionState(models.Model):
+    country_code = models.ForeignKey('Country',on_delete=models.CASCADE)
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length=100)
+    school= models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class Country(models.Model):
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length=100)
+    school= models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class Term(models.Model):
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length=100)
+    startdate = models.DateField()
+    enddate = models.DateField()
+    school= models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class UserSetup(models.Model):
+    userid = models.ForeignKey(User,on_delete=models.CASCADE)
+    usertype = models.CharField(max_length = 50,choices=(('Student','student'),('Lecturer','lecturer'),('Admin','admin')))
+    school = models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.userid}'
+
+class Faculty(models.Model):
+    schools_id = models.ForeignKey('Schools',on_delete=models.CASCADE)
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length=100)
+    school = models.ForeignKey(School,on_detele = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class Department(models.Model):
+    schools_id = models.ForeignKey('Schools',on_delete = models.CASCADE)
+    faculty_id = models.ForeignKey(Faculty,on_delete = models.CASCADE)
+    code = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 200)
+    school = models.ForeignKey(School,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'

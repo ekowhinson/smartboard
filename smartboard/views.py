@@ -344,3 +344,38 @@ class MarksViewSet(viewsets.ModelViewSet):
     queryset=smodels.Marks.objects.all()
     serializer_class=sbserializers.MarksSerializer
     filterset_fields=['school']
+
+class NationalityViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Nationality.objects.all()
+    serializer_class=sbserializers.NationalitySerializer
+    filterset_fields=['school']
+
+class RegionStateViewSet(viewsets.ModelViewSet):
+    queryset=smodels.RegionState.objects.all()
+    serializer_class=sbserializers.RegionStateSerializer
+    filterset_fields=['school']
+
+class CountryViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Country.objects.all()
+    serializer_class=sbserializers.CountrySerializer
+    filterset_fields=['school']
+
+class UserSetupViewSet(viewsets.ModelViewSet):
+    queryset=smodels.UserSetup.objects.all()
+    serializer_class=sbserializers.UserSetupSerializer
+    filterset_fields=['school']
+
+class FacultyViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Faculty.objects.all()
+    serializer_class=sbserializers.FacultySerializer
+    filterset_fields=['school']
+
+class DepartmentViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Department.objects.all()
+    serializer_class=sbserializers.DepartmentSerializer
+    filterset_fields=['school']
+
+class TermViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Term.objects.all()
+    serializer_class=sbserializers.TermSerializer
+    filterset_fields=['school']

@@ -356,3 +356,38 @@ class MarksSerializer(serializers.ModelSerializer):
     class Meta:
         model=smbmodels.Marks
         fields='__all__'
+
+class NationalitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Nationality
+        fields='__all__'
+
+class RegionStateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.RegionState
+        fields='__all__'
+
+class CountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Country
+        fields='__all__'
+
+class TermSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Term
+        fields='__all__'
+
+class UserSetupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.UserSetup
+        fields='__all__'
+
+class FacultySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Faculty
+        fields='__all__'
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=smbmodels.Department
+        fields='__all__'
