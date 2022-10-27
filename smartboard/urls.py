@@ -80,4 +80,5 @@ router.register('term',sbviews.TermViewSet,basename='term')
 router.register('usersetup',sbviews.UserSetupViewSet,basename='usersetup')
 router.register('faculty',sbviews.FacultyViewSet,basename='faculty')
 router.register('department',sbviews.DepartmentViewSet,basename='department')
+router.register('schools',sbviews.SchoolsViewSet,basename='schools')
 urlpatterns=router.urls
