@@ -1085,7 +1085,7 @@ class Faculty(models.Model):
     schools_id = models.ForeignKey('Schools',on_delete=models.CASCADE)
     code = models.CharField(max_length = 50)
     name = models.CharField(max_length=100)
-    school = models.ForeignKey(School,on_detele = models.CASCADE)
+    school = models.ForeignKey(School,on_delete = models.CASCADE)
 
     def __str__(self):
         return f'{self.school}: {self.name}'
