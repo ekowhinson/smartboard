@@ -999,7 +999,7 @@ class Applicants(models.Model):
 class Programs(models.Model):
     code = models.CharField(max_length = 50)
     name = models.CharField(max_length = 200)
-    credential = models.ForeignKey(User,on_delete=models.CASCADE)
+    credential = models.ForeignKey('Credential',on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now=True)
     school = models.ForeignKey(School,on_delete=models.CASCADE)
 
@@ -1104,3 +1104,14 @@ class Schools(models.Model):
     code = models.CharField(max_length = 50)
     name = models.CharField(max_length=100)
     school = models.ForeignKey(School,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
+
+class Credential(models.Model):
+    name = models.CharField(max_length = 200)
+    creation_date = models.DateTimeField()
+    school = models.ForeignKey(School,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'
