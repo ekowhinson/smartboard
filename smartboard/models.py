@@ -1022,7 +1022,7 @@ class Courses(models.Model):
 class Marks(models.Model):
     student_id=models.ForeignKey(Student,on_delete = models.CASCADE)
     name = models.CharField(max_length=200,null=True,blank=True)
-    credit = models.DecimalField(max_length = 8, decimal_places = 2)
+    credit = models.DecimalField(max_digits = 8, decimal_places = 2)
     type = models.CharField(max_length = 50,choices=(('Elective','elective'),('Core','core')))
     lecturer_id = models.ForeignKey('UserSetup',on_delete=models.CASCADE)
     program_id = models.ForeignKey(Programs,on_delete = models.CASCADE)
