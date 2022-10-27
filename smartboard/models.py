@@ -1,4 +1,5 @@
 from datetime import datetime
+from random import choices
 import re
 from django.db import models
 from django.contrib.auth.models import User
@@ -975,7 +976,7 @@ class Applicants(models.Model):
     username = models.CharField(max_length = 100,null = True,blank = True)
     password = models.CharField(max_length = 100,null = True, blank = True)
     birth_date = models.DateField()
-    sex = models.CharField(max_length = 20,options=(('Male','male'),('Female','female')))
+    sex = models.CharField(max_length = 20,choices=(('Male','male'),('Female','female')))
     academic_year = models.ForeignKey(AcademicYear,on_delete = models.CASCADE)
     term = models.ForeignKey('Term',on_delete = models.CASCADE)
     program = models.ForeignKey('Program',on_delete = models.CASCADE)
