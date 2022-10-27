@@ -970,7 +970,7 @@ class Applicants(models.Model):
     phone = models.CharField(max_length = 50,null=True,blank = True)
     mobile = models.CharField(max_length = 50,null = True,blank=True)
     address = models.CharField(max_length = 200, null = True, blank = True)
-    region = models.ForeignKey('Region',on_delete = models.CASCADE)
+    region = models.ForeignKey('RegionState',on_delete = models.CASCADE)
     country = models.ForeignKey('Country',on_delete = models.CASCADE)
     nationality = models.ForeignKey('Nationality',on_delete = models.CASCADE)
     email = models.EmailField()
