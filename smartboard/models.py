@@ -991,7 +991,11 @@ class Applicants(models.Model):
     application_status = models.IntegerField()
     index_number = models.CharField(max_length = 100,null=True,blank=True)
     admission_closed = models.IntegerField(null=True,blank=True)
+    token = models.CharField(max_length = 200,null=True,blank=True)
+    last_ip = models.CharField(max_length = 200,null = True,blank = True)
+    is_activ = models.CharField(max_length = 50,null=True,blank = True)
     school = models.ForeignKey(School,on_delete = models.CASCADE)
+
 
     def __str__(self):
         return f'{self.school}: {self.first_name} {self.last_name}'
