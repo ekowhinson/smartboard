@@ -1110,7 +1110,7 @@ class Schools(models.Model):
 
 class Credential(models.Model):
     name = models.CharField(max_length = 200)
-    creation_date = models.DateTimeField()
+    creation_date = models.DateTimeField(auto_now=True)
     school = models.ForeignKey(School,on_delete=models.CASCADE)
 
     def __str__(self):
