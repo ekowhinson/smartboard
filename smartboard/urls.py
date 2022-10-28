@@ -81,4 +81,5 @@ router.register('usersetup',sbviews.UserSetupViewSet,basename='usersetup')
 router.register('faculty',sbviews.FacultyViewSet,basename='faculty')
 router.register('department',sbviews.DepartmentViewSet,basename='department')
 router.register('schools',sbviews.SchoolsViewSet,basename='schools')
+router.register('credentials',sbviews.CredentialViewSet,basename='credentials')
 urlpatterns=router.urls

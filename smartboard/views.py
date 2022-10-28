@@ -384,3 +384,8 @@ class SchoolsViewSet(viewsets.ModelViewSet):
     queryset=smodels.Schools.objects.all()
     serializer_class=sbserializers.SchoolsSerializer
     filterset_fields=['school']
+
+class CredentialViewSet(viewsets.ModelViewSet):
+    queryset=smodels.Credential.objects.all()
+    serializer_class=sbserializers.CredentialSerializer
+    filterset_fields=['school']
