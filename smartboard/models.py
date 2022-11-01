@@ -1119,3 +1119,21 @@ class Credential(models.Model):
 
     def __str__(self):
         return f'{self.school}: {self.name}'
+
+class Applicant_Education(models.Model):
+    name = models.CharField(max_length = 200)
+    credential = models.ForeignKey(Credential,on_delete = models.CASCADE)
+    type = models.CharField(max_length = 50, choices = (('High School','highschool'),('Tertiary','tertiary')))
+    address = models.CharField(max_length = 200,null = True, blank = True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    certificate = models.FileField(upload_to='certificate/')
+    transcript = models.FileField(upload_to='transcript/')
+    cv_resume = models.FileField(upload_to='certificate/')
+    referee = models.FileField(upload_to='certificate/')
+    referee = models.FileField(upload_to='certificate/')
+    status = models.CharField(max_length = 200,null = True, blank = True)
+    school = models.ForeignKey(School,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return f'{self.school}: {self.name}'

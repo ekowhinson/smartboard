@@ -401,3 +401,8 @@ class CredentialSerializer(serializers.ModelSerializer):
     class Meta:
         model = smbmodels.Credential
         fields = '__all__'
+
+class ApplicantEducationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = smbmodels.Applicant_Education
+        fields = '__all__'
